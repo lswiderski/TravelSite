@@ -1,0 +1,27 @@
+﻿@model WebProject.Models.ViewModels.CreateCommentViewModel
+@{
+    ViewBag.Title = "Create Comment";
+}
+
+<h2>Create Comment</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Content, new { @class="form-control", rows="3"})
+            @Html.ValidationMessageFor(model => model.Content)
+        </div>
+
+        <br />
+        @Html.HiddenFor(model => model.PlaceId, new { @Value = ViewBag.PlaceId})
+        @Html.HiddenFor(model => model.UserEmail, new { @Value = User.Identity.Name })
+
+        <p>
+            <input class="btn btn-default" type="submit" value="Submit">
+        </p>
+    </fieldset>
+}

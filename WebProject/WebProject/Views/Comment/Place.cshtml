@@ -1,0 +1,15 @@
+﻿@model IEnumerable<WebProject.Models.ViewModels.CreateCommentViewModel>
+
+<h2>Comments</h2>
+
+@foreach (var item in Model)
+{
+<div class="panel panel-default">
+    <div class="panel-heading"><span>@Html.DisplayFor(modelItem => item.UserEmail)</span><span class="text-right" style="float: right;">@Html.DisplayFor(modelItem => item.Date)</span></div>
+    <div class="panel-body">
+        @Html.DisplayFor(modelItem => item.Content)
+    </div>
+</div>
+}
+
+<h2>@Html.ActionLink("add new comment", "Create", "Comment", new { id = ViewBag.PlaceId }, new { @class = "btn btn-primary", role = "button" })</h2>

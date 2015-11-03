@@ -1,0 +1,53 @@
+﻿@model WebProject.Models.ViewModels.AllUserInfoViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>User Details</h2>
+
+
+<div class="display-field">
+    @Html.DisplayFor(model => model.Email)
+</div>
+
+
+<div class="display-field">
+    @Html.DisplayFor(model => model.FirstName)
+</div>
+
+
+<div class="display-field">
+    @Html.DisplayFor(model => model.LastName)
+</div>
+
+<h2>Places added by user</h2>
+<table class="table table-striped">
+    @foreach (var item in Model.Places)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>@Html.ActionLink("see", "Details", "Place", new { id = item.PlaceId }, null)</td>
+        </tr>
+    }
+</table>
+<h2>Comments added by user</h2>
+<table class="table table-striped">
+    @foreach (var item in Model.Comments)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>@Html.ActionLink("see", "Details", "Place", new { id = item.PlaceId }, null)</td>
+        </tr>
+    }
+</table>
+

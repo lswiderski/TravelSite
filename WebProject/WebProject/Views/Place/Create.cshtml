@@ -1,0 +1,55 @@
+﻿@model WebProject.Models.ViewModels.CreatePlaceViewModel
+@{
+    ViewBag.Title = "Add Place";
+}
+
+<h2>Add Place</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+
+    <fieldset>
+        <form class="form-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, new { @class = "col-sm-2 control-label", @for = "inputName" })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(model => model.Name, new {  @class = "form-control", type = "text" })
+                    @Html.ValidationMessageFor(model => model.Name)
+                </div>
+            </div>
+            <br /><br />
+            <div class="form-group">
+                @Html.LabelFor(model => model.Photo_URI, new { @class = "col-sm-2 control-label", @for= "inputPhoto" })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(model => model.Photo_URI, new {  @class = "form-control", type = "text" })
+                    @Html.ValidationMessageFor(model => model.Photo_URI)
+                </div>
+            </div>
+            <br /><br />
+            <div class="form-group">
+                @Html.LabelFor(model => model.CountryId, new { @class = "col-sm-2 control-label", @for = "inputCountry" })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(model => model.CountryId, new {  @class = "form-control", type = "text" })
+                    @Html.ValidationMessageFor(model => model.CountryId)
+                </div>
+            </div>
+            <br /><br />
+            <div class="form-group">
+                @Html.LabelFor(model => model.Content, new { @class = "col-sm-2 control-label", @for = "inputContent" })
+                <div class="col-sm-10">
+                    @Html.TextAreaFor(model => model.Content, new { @class = "form-control", rows = "3", id = "inputContent" })
+                    @Html.ValidationMessageFor(model => model.Content)
+                </div>
+            </div>
+            <br /><br />
+            @Html.HiddenFor(model => model.UserEmail, new { @Value = User.Identity.Name })
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Add</button>
+                </div>
+            </div>
+        </form>
+    </fieldset>
+}
