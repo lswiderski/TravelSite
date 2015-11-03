@@ -25,6 +25,12 @@ namespace WebProject.Controllers
             ViewBag.UserId = id;
             return View(userModel.GetUser(id));
         }
+        // GET: User/Details/ee@ee.pl
+        public ActionResult DetailsM(string email)
+        {
+            ViewBag.UserId = email;
+            return View("Details",userModel.GetUser(email));
+        }
 
         // GET: User/Create
         public ActionResult Create()
