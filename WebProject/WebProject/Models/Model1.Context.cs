@@ -29,5 +29,6 @@ namespace WebProject.Models
         public virtual DbSet<Country> Country { get; set; }
         public virtual DbSet<Place> Place { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Ranking> Ranking { get; set; }
     }
 }

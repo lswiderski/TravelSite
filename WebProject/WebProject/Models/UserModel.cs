@@ -5,6 +5,7 @@ using System.Web;
 using WebProject.Models.ViewModels;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Helpers;
 
 namespace WebProject.Models
 {
@@ -32,6 +33,10 @@ namespace WebProject.Models
         [DisplayName("Email")]
         public string Email { get; set; }
 
+        [Required]
+        [DisplayName("Password")]
+        public string Password { get; set; }
+
         public bool IsActive { get; set; }
 
         public bool IsAdmin { get; set; }
@@ -40,13 +45,14 @@ namespace WebProject.Models
         {
             using (var db = new webprojectDBEntities())
             {
+                var hashedPassword = Crypto.HashPassword(model.Password);
                 db.User.Add(new User()
                 {
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     BirthDate = model.BirthDate,
                     Email = model.Email,
-                    Phone = null,
+                    Password = hashedPassword,
                     AddDate = System.DateTime.Now,
                     ModifiedDate = null,
                     IsActive = model.IsActive
@@ -131,15 +137,22 @@ namespace WebProject.Models
         {
             using (var db = new webprojectDBEntities())
             {
-                if (_username != _password)
-                {
-                    return false;
-                }
-
-                var user = db.User.Select(x => new { x.Email }).Where(x => x.Email == _username).SingleOrDefault();
+                var user = db.User.Select(x => new { x.Email, x.Password }).Where(x => x.Email == _username).SingleOrDefault();
                 if (user != null)
                 {
-                    return true;
+                    var hashedPassword = user.Password;
+                    bool doesPasswordMatch = false;
+                    try
+                    {
+                        doesPasswordMatch = Crypto.VerifyHashedPassword(hashedPassword, _password);
+                    }
+                    catch (Exception)
+                    {
+
+                        //badpassword
+                    }
+                    
+                    return doesPasswordMatch;
                 }
                 else
                 {

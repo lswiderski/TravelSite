@@ -20,6 +20,7 @@ namespace WebProject.Models
             this.COMMENT = new HashSet<COMMENT>();
             this.Place = new HashSet<Place>();
             this.Place1 = new HashSet<Place>();
+            this.Ranking = new HashSet<Ranking>();
         }
     
         public int UserId { get; set; }
@@ -27,11 +28,12 @@ namespace WebProject.Models
         public string LastName { get; set; }
         public System.DateTime BirthDate { get; set; }
         public string Email { get; set; }
-        public string Phone { get; set; }
         public System.DateTime AddDate { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }
         public bool IsActive { get; set; }
         public bool IsAdmin { get; set; }
+        public string Country { get; set; }
+        public string Password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<COMMENT> COMMENT { get; set; }
@@ -39,5 +41,7 @@ namespace WebProject.Models
         public virtual ICollection<Place> Place { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Place> Place1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Ranking> Ranking { get; set; }
     }
 }
