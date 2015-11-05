@@ -17,7 +17,7 @@ namespace WebProject.Models
         public void Create(CommentModel model)
         {
             var userModel = new UserModel();
-            using (var db = new webprojectDBEntities())
+            using (var db = new DBEntitiesProxy())
             {
                 db.COMMENT.Add(new COMMENT()
                 {
@@ -32,7 +32,7 @@ namespace WebProject.Models
         public void Create(CreateCommentViewModel model)
         {
             var userModel = new UserModel();
-            using (var db = new webprojectDBEntities())
+            using (var db = new DBEntitiesProxy())
             {
                 db.COMMENT.Add(new COMMENT()
                 {
@@ -46,35 +46,35 @@ namespace WebProject.Models
         }
         public List<CommentModel> GetComments()
         {
-            using (var db = new webprojectDBEntities())
+            using (var db = new DBEntitiesProxy())
             {
                 return db.COMMENT.Select(x => new CommentModel { CommentId = x.CommentId, Content = x.Content, Date = x.Date, UserId = x.UserId, PlaceId = x.PlaceId }).ToList();
             }
         }
         public List<CreateCommentViewModel> GetCommentsWithUser()
         {
-            using (var db = new webprojectDBEntities())
+            using (var db = new DBEntitiesProxy())
             {
                 return db.COMMENT.Select(x => new CreateCommentViewModel { CommentId = x.CommentId, Content = x.Content, Date = x.Date, UserId = x.UserId, PlaceId = x.PlaceId, UserEmail = x.User.Email }).ToList();
             }
         }
         public CreateCommentViewModel GetComment(int id)
         {
-            using (var db = new webprojectDBEntities())
+            using (var db = new DBEntitiesProxy())
             {
                 return db.COMMENT.Select(x => new CreateCommentViewModel { CommentId = x.CommentId, Content = x.Content, Date = x.Date, UserId = x.UserId, PlaceId = x.PlaceId, UserEmail = x.User.Email }).Where(x => x.CommentId == id).SingleOrDefault();
             }
         }
         public List<CreateCommentViewModel> GetCommentByPlace(int id)
         {
-            using (var db = new webprojectDBEntities())
+            using (var db = new DBEntitiesProxy())
             {
                 return db.COMMENT.Select(x => new CreateCommentViewModel { CommentId = x.CommentId, Content = x.Content, Date = x.Date, UserId = x.UserId, PlaceId = x.PlaceId, UserEmail = x.User.Email }).Where(x => x.PlaceId == id).ToList();
             }
         }
         public List<CreateCommentViewModel> GetCommentByUser(int id)
         {
-            using (var db = new webprojectDBEntities())
+            using (var db = new DBEntitiesProxy())
             {
                 return db.COMMENT.Select(x => new CreateCommentViewModel { CommentId = x.CommentId, Content = x.Content, Date = x.Date, UserId = x.UserId, PlaceId = x.PlaceId, UserEmail = x.User.Email }).Where(x => x.UserId == id).ToList();
             }

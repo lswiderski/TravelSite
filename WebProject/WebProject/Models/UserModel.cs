@@ -43,7 +43,7 @@ namespace WebProject.Models
 
         public void Create(UserModel model)
         {
-            using (var db = new webprojectDBEntities())
+            using (var db = new DBEntitiesProxy())
             {
                 var hashedPassword = Crypto.HashPassword(model.Password);
                 db.User.Add(new User()
@@ -62,7 +62,7 @@ namespace WebProject.Models
         }
         public int GetUserID(string email)
         {
-            using (var db = new webprojectDBEntities())
+            using (var db = new DBEntitiesProxy())
             {
                 var user = db.User.Where(x => x.Email == email).Select(x => new { x.UserId}).SingleOrDefault();
                 return user.UserId;
@@ -71,7 +71,7 @@ namespace WebProject.Models
         }
         public int GetUserByEmail(string email)
         {
-            using (var db = new webprojectDBEntities())
+            using (var db = new DBEntitiesProxy())
             {
                 var user = db.User.Where(x => x.Email == email).Select(x => new UserModel{ BirthDate = x.BirthDate, Email = x.Email, FirstName = x.FirstName, IsActive = x.IsActive, IsAdmin = x.IsAdmin, LastName = x.LastName, UserId = x.UserId }).SingleOrDefault();
                 return user.UserId;
@@ -80,7 +80,7 @@ namespace WebProject.Models
         }
         public int GetUserById(int id)
         {
-            using (var db = new webprojectDBEntities())
+            using (var db = new DBEntitiesProxy())
             {
                 var user = db.User.Where(x => x.UserId == id).Select(x => new UserModel { BirthDate = x.BirthDate, Email = x.Email, FirstName = x.FirstName, IsActive = x.IsActive, IsAdmin = x.IsAdmin, LastName = x.LastName, UserId = x.UserId }).SingleOrDefault();
                 return user.UserId;
@@ -89,7 +89,7 @@ namespace WebProject.Models
         }
         public AllUserInfoViewModel GetUser(int id)
         {
-            using (var db = new webprojectDBEntities())
+            using (var db = new DBEntitiesProxy())
             {
                 var user = db.User
                     .Where(x => x.UserId == id)
@@ -112,7 +112,7 @@ namespace WebProject.Models
         }
         public AllUserInfoViewModel GetUser(string email)
         {
-            using (var db = new webprojectDBEntities())
+            using (var db = new DBEntitiesProxy())
             {
                 var user = db.User
                     .Where(x => x.Email == email)
@@ -135,7 +135,7 @@ namespace WebProject.Models
         }
         public bool IsValid(string _username, string _password)
         {
-            using (var db = new webprojectDBEntities())
+            using (var db = new DBEntitiesProxy())
             {
                 var user = db.User.Select(x => new { x.Email, x.Password }).Where(x => x.Email == _username).SingleOrDefault();
                 if (user != null)
@@ -163,7 +163,7 @@ namespace WebProject.Models
         }
         public bool CheckIfIsAdmin(string email)
         {
-            using (var db = new webprojectDBEntities())
+            using (var db = new DBEntitiesProxy())
             {
                 var user = db.User.Select(x => new { x.Email, x.IsAdmin }).Where(x => x.Email == email).SingleOrDefault();
                 if (user == null)

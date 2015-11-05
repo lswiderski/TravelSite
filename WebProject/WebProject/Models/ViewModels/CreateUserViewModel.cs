@@ -32,6 +32,14 @@ namespace WebProject.Models.ViewModels
         public string Email { get; set; }
 
         [Required]
+        [DisplayName("Country")]
+        public string Country { get; set; }
+
+        [Required]
+        [DisplayName("Password")]
+        public string PAssword { get; set; }
+
+        [Required]
         [DisplayName("Active")]
         public bool IsActive { get; set; }
 

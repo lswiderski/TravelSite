@@ -18,7 +18,7 @@ namespace WebProject.Models
 
         public void Create(CountryModel model)
         {
-            using (var db = new webprojectDBEntities())
+            using (var db = new DBEntitiesProxy())
             {
                 db.Country.Add(new Country()
                 {
@@ -30,7 +30,7 @@ namespace WebProject.Models
         }
         public List<CountryModel> GetCountries()
         {
-            var db = new webprojectDBEntities();
+            var db = new DBEntitiesProxy();
             return db.Country.Select(x => new CountryModel { Code = x.Code, CountryId = x.CountryId, Name = x.Name }).ToList();
         }
     }

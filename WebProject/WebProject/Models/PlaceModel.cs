@@ -28,7 +28,7 @@ namespace WebProject.Models
         public void Create(CreatePlaceViewModel model)
         {
             var userModel = new UserModel();
-            using (var db = new webprojectDBEntities())
+            using (var db = new DBEntitiesProxy())
             {
                 db.Place.Add(new Place()
                 {
@@ -44,7 +44,7 @@ namespace WebProject.Models
         }
         public void Accept(int id)
         {
-            using (var db = new webprojectDBEntities())
+            using (var db = new DBEntitiesProxy())
             {
                 var place = db.Place.Where(x => x.PlaceId == id).SingleOrDefault();
                 if(place != null)
@@ -57,7 +57,7 @@ namespace WebProject.Models
         }
         public PlaceViewModel GetPlace(int id)
         {
-            using (var db = new webprojectDBEntities())
+            using (var db = new DBEntitiesProxy())
             {
                 return db.Place.Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName + " " + x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI }).Where(x => x.PlaceId == id).SingleOrDefault();
             }
@@ -65,29 +65,29 @@ namespace WebProject.Models
         }
         public List<PlaceViewModel> GetPlaces()
         {
-            var db = new webprojectDBEntities();
+            var db = new DBEntitiesProxy();
             return db.Place.Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName+" "+x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI }).ToList();
         }
         public List<PlaceViewModel> GetAccpetedPlaces()
         {
-            var db = new webprojectDBEntities();
+            var db = new DBEntitiesProxy();
             return db.Place.Where(x => x.IsAccepted == true).Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName + " " + x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI }).ToList();
         }
         public List<PlaceViewModel> GetNotAccpetedPlaces()
         {
-            var db = new webprojectDBEntities();
+            var db = new DBEntitiesProxy();
             return db.Place.Where(x => x.IsAccepted == false).Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName + " " + x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI }).ToList();
         }
         public List<PlaceViewModel> GetPlacesAddedByUser(int id)
         {
-            using (var db = new webprojectDBEntities())
+            using (var db = new DBEntitiesProxy())
             {
                 return db.Place.Where(x => x.UserId == id).Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName + " " + x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI }).ToList();
             }
         }
         public List<PlaceViewModel> GetPlacesAddedByUser(string email)
         {
-            using (var db = new webprojectDBEntities())
+            using (var db = new DBEntitiesProxy())
             {
                 return db.Place.Where(x => x.User.Email == email).Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName + " " + x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI }).ToList();
             }
