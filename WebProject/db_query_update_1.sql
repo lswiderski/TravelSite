@@ -24,4 +24,7 @@ GO
 ALTER TABLE dbo.[User] ADD
 	Password nvarchar(128) NOT NULL DEFAULT 'qwe'
 GO
+ALTER TABLE dbo.TRAVELS ADD
+	Date datetime NULL
+GO
 COMMIT

@@ -30,5 +30,6 @@ namespace WebProject.Models
         public virtual DbSet<Place> Place { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Ranking> Ranking { get; set; }
+        public virtual DbSet<Travels> TravelsSet { get; set; }
     }
 }

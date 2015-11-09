@@ -49,14 +49,16 @@ warning 6002: The table/view 'webprojectDB.dbo.Ranking' does not have a primary 
           <Property Name="Score" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'webprojectDB.dbo.TRAVELS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="TRAVELS">
+warning 6002: The table/view 'webprojectDB.dbo.Travels' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Travels">
           <Key>
             <PropertyRef Name="PlaceId" />
             <PropertyRef Name="UserId" />
+            <PropertyRef Name="Date" />
           </Key>
           <Property Name="PlaceId" Type="int" Nullable="false" />
           <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -148,24 +150,24 @@ warning 6002: The table/view 'webprojectDB.dbo.TRAVELS' does not have a primary 
         </Association>
         <Association Name="FKTPlaceId">
           <End Role="Place" Type="Self.Place" Multiplicity="1" />
-          <End Role="TRAVELS" Type="Self.TRAVELS" Multiplicity="*" />
+          <End Role="Travels" Type="Self.Travels" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Place">
               <PropertyRef Name="PlaceId" />
             </Principal>
-            <Dependent Role="TRAVELS">
+            <Dependent Role="Travels">
               <PropertyRef Name="PlaceId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FKTUserId">
           <End Role="User" Type="Self.User" Multiplicity="1" />
-          <End Role="TRAVELS" Type="Self.TRAVELS" Multiplicity="*" />
+          <End Role="Travels" Type="Self.Travels" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="UserId" />
             </Principal>
-            <Dependent Role="TRAVELS">
+            <Dependent Role="Travels">
               <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
@@ -182,11 +184,12 @@ warning 6002: The table/view 'webprojectDB.dbo.TRAVELS' does not have a primary 
     [Ranking].[Score] AS [Score]
     FROM [dbo].[Ranking] AS [Ranking]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="TRAVELS" EntityType="Self.TRAVELS" store:Type="Tables" store:Schema="dbo">
+          <EntitySet Name="Travels" EntityType="Self.Travels" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [TRAVELS].[PlaceId] AS [PlaceId], 
-    [TRAVELS].[UserId] AS [UserId]
-    FROM [dbo].[TRAVELS] AS [TRAVELS]</DefiningQuery>
+    [Travels].[PlaceId] AS [PlaceId], 
+    [Travels].[UserId] AS [UserId], 
+    [Travels].[Date] AS [Date]
+    FROM [dbo].[Travels] AS [Travels]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FKCPlaceId" Association="Self.FKCPlaceId">
             <End Role="Place" EntitySet="Place" />
@@ -214,11 +217,11 @@ warning 6002: The table/view 'webprojectDB.dbo.TRAVELS' does not have a primary 
           </AssociationSet>
           <AssociationSet Name="FKTPlaceId" Association="Self.FKTPlaceId">
             <End Role="Place" EntitySet="Place" />
-            <End Role="TRAVELS" EntitySet="TRAVELS" />
+            <End Role="Travels" EntitySet="Travels" />
           </AssociationSet>
           <AssociationSet Name="FKTUserId" Association="Self.FKTUserId">
             <End Role="User" EntitySet="User" />
-            <End Role="TRAVELS" EntitySet="TRAVELS" />
+            <End Role="Travels" EntitySet="Travels" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -263,6 +266,7 @@ warning 6002: The table/view 'webprojectDB.dbo.TRAVELS' does not have a primary 
           <NavigationProperty Name="User1" Relationship="Self.TRAVELS" FromRole="Place" ToRole="User" />
           <Property Name="Ranking" Type="Int32" />
           <NavigationProperty Name="Ranking1" Relationship="webprojectDBModel.FKRPlaceId" FromRole="Place" ToRole="Ranking" />
+          <NavigationProperty Name="Travels" Relationship="webprojectDBModel.FKTPlaceId" FromRole="Place" ToRole="Travels1" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -283,6 +287,7 @@ warning 6002: The table/view 'webprojectDB.dbo.TRAVELS' does not have a primary 
           <Property Name="Country" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Ranking" Relationship="webprojectDBModel.FKRUserId" FromRole="User" ToRole="Ranking" />
+          <NavigationProperty Name="Travels" Relationship="webprojectDBModel.FKTUserId" FromRole="User" ToRole="Travels1" />
         </EntityType>
         <Association Name="FKCPlaceId">
           <End Role="Place" Type="Self.Place" Multiplicity="1" />
@@ -370,6 +375,15 @@ warning 6002: The table/view 'webprojectDB.dbo.TRAVELS' does not have a primary 
             <End Role="User" EntitySet="User" />
             <End Role="Ranking" EntitySet="Ranking" />
           </AssociationSet>
+          <EntitySet Name="TravelsSet" EntityType="webprojectDBModel.Travels" />
+          <AssociationSet Name="FKTPlaceId" Association="webprojectDBModel.FKTPlaceId">
+            <End Role="Place" EntitySet="Place" />
+            <End Role="Travels1" EntitySet="TravelsSet" />
+          </AssociationSet>
+          <AssociationSet Name="FKTUserId" Association="webprojectDBModel.FKTUserId">
+            <End Role="User" EntitySet="User" />
+            <End Role="Travels1" EntitySet="TravelsSet" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Ranking">
           <Key>
@@ -403,6 +417,42 @@ warning 6002: The table/view 'webprojectDB.dbo.TRAVELS' does not have a primary 
               <PropertyRef Name="UserId" />
             </Principal>
             <Dependent Role="Ranking">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Travels">
+          <Key>
+            <PropertyRef Name="PlaceId" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Date" />
+          </Key>
+          <Property Name="PlaceId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Place" Relationship="webprojectDBModel.FKTPlaceId" FromRole="Travels1" ToRole="Place" />
+          <NavigationProperty Name="User" Relationship="webprojectDBModel.FKTUserId" FromRole="Travels1" ToRole="User" />
+        </EntityType>
+        <Association Name="FKTPlaceId">
+          <End Type="webprojectDBModel.Place" Role="Place" Multiplicity="1" />
+          <End Type="webprojectDBModel.Travels" Role="Travels1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Place">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="Travels1">
+              <PropertyRef Name="PlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKTUserId">
+          <End Type="webprojectDBModel.User" Role="User" Multiplicity="1" />
+          <End Type="webprojectDBModel.Travels" Role="Travels1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Travels1">
               <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
@@ -464,18 +514,19 @@ warning 6002: The table/view 'webprojectDB.dbo.TRAVELS' does not have a primary 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="TRAVELS" TypeName="webprojectDBModel.TRAVELS" StoreEntitySet="TRAVELS">
-            <EndProperty Name="Place">
-              <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
-            </EndProperty>
-            <EndProperty Name="User">
-              <ScalarProperty Name="UserId" ColumnName="UserId" />
-            </EndProperty>
-          </AssociationSetMapping>
           <EntitySetMapping Name="Ranking">
             <EntityTypeMapping TypeName="webprojectDBModel.Ranking">
               <MappingFragment StoreEntitySet="Ranking">
                 <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TravelsSet">
+            <EntityTypeMapping TypeName="webprojectDBModel.Travels">
+              <MappingFragment StoreEntitySet="Travels">
+                <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
               </MappingFragment>

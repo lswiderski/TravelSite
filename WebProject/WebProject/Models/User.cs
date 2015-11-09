@@ -21,6 +21,7 @@ namespace WebProject.Models
             this.Place = new HashSet<Place>();
             this.Place1 = new HashSet<Place>();
             this.Ranking = new HashSet<Ranking>();
+            this.Travels = new HashSet<Travels>();
         }
     
         public int UserId { get; set; }
@@ -43,5 +44,7 @@ namespace WebProject.Models
         public virtual ICollection<Place> Place1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ranking> Ranking { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Travels> Travels { get; set; }
     }
 }

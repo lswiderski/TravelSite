@@ -17,6 +17,9 @@
         <EntityTypeShape EntityType="webprojectDBModel.Ranking" Width="1.5" PointX="7.5" PointY="8.375" />
         <AssociationConnector Association="webprojectDBModel.FKRPlaceId" />
         <AssociationConnector Association="webprojectDBModel.FKRUserId" />
+        <EntityTypeShape EntityType="webprojectDBModel.Travels" Width="1.5" PointX="10.5" PointY="5.375" />
+        <AssociationConnector Association="webprojectDBModel.FKTPlaceId" />
+        <AssociationConnector Association="webprojectDBModel.FKTUserId" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
