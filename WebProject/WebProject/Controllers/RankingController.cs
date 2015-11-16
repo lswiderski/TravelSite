@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebProject.Models;
 using WebProject.Models.ViewModels;
 
 namespace WebProject.Controllers
 {
     public class RankingController : Controller
     {
+        private RankingService rankingService = new RankingService();
         // GET: Ranking
         public ActionResult Index()
         {
@@ -22,25 +24,26 @@ namespace WebProject.Controllers
         }
 
         // GET: Ranking/Create
-        public ActionResult Create(int placeId, int score)
+        public ActionResult Create(int id)
         {
-            CreateRankingViewModel model = new CreateRankingViewModel { PlaceId = placeId, Score = score, UserEmail = User.Identity.Name };
-            ViewBag.PlaceId = placeId;
-            return PartialView(model);
+            CreateRankingViewModel model = new CreateRankingViewModel { PlaceId = id, UserEmail = User.Identity.Name };
+            ViewBag.PlaceId = id;
+            return View(model);
         }
 
         // POST: Ranking/Create
         [HttpPost]
-        public void Create(CreateRankingViewModel model)
+        public ActionResult Create(CreateRankingViewModel model)
         {
             try
             {
-                // TODO: Add insert logic here
+                rankingService.Create(model);
             }
             catch
             {
                 
             }
+            return RedirectToAction("Details","Place",new { id = model.PlaceId });
         }
 
         // GET: Ranking/Edit/5

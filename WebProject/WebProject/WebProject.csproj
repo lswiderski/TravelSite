@@ -299,7 +299,7 @@
     <Content Include="Views\User\Details.cshtml" />
     <Content Include="Views\Travels\Create.cshtml" />
     <Content Include="Views\Ranking\Create.cshtml" />
-    <Content Include="Views\Place\SetRanking.cshtml" />
+    <Content Include="Views\Place\PartialPlace.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

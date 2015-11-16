@@ -1,8 +1,0 @@
-﻿@model WebProject.Models.ViewModels.CreateRankingViewModel
-
-@using (Html.BeginForm())
-{
-    @Html.DropDownListFor(model => model.Score, new SelectList(new int[] { 1, 2, 3, 4, 5 }))
-
-    <button type="submit" class="btn btn-default">Add</button>
-}

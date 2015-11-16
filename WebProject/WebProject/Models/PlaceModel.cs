@@ -68,6 +68,26 @@ namespace WebProject.Models
             var db = new DBEntitiesProxy();
             return db.Place.Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName+" "+x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI }).ToList();
         }
+        public List<PlaceViewModel> GetPlacesByAdds()
+        {
+            var db = new DBEntitiesProxy();
+            return db.Place.Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName + " " + x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI }).Take(4).ToList();
+        }
+        public List<PlaceViewModel> GetPlacesByPopularDesc()
+        {
+            var db = new DBEntitiesProxy();
+            return db.Place.OrderByDescending(x=>x.Travels.Count).Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName + " " + x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI }).Take(4).ToList();
+        }
+        public List<PlaceViewModel> GetPlacesByRanking()
+        {
+            var db = new DBEntitiesProxy();
+            return db.Place.OrderByDescending(x => x.Ranking.Value).Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName + " " + x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI }).Take(4).ToList();
+        }
+        public List<PlaceViewModel> GetPlacesByPopularASC()
+        {
+            var db = new DBEntitiesProxy();
+            return db.Place.OrderBy(x => x.Travels.Count).Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName + " " + x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI }).Take(4).ToList();
+        }
         public List<PlaceViewModel> GetAccpetedPlaces()
         {
             var db = new DBEntitiesProxy();

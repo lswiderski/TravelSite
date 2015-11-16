@@ -9,7 +9,7 @@ namespace WebProject.Models
 {
     public class RankingService
     {
-        void Create(CreateRankingViewModel model)
+        public void Create(CreateRankingViewModel model)
         {
             using (var db = new DBEntitiesProxy())
             {
@@ -20,7 +20,12 @@ namespace WebProject.Models
                     PlaceId = model.PlaceId,
                     UserId = userId
                 });
-                var avg = db.Ranking.Where(x => x.PlaceId == model.PlaceId).Select(x => x.Score).ToList().Average();
+                var list = db.Ranking.Where(x => x.PlaceId == model.PlaceId).Select(x => x.Score).ToList();
+                double avg = model.Score;
+                if (list.Count>0)
+                {
+                    avg = list.Average();
+                }
                 var place = db.Place.Where(x => x.PlaceId == model.PlaceId).SingleOrDefault();
                 if (place != null)
                 {
@@ -30,7 +35,7 @@ namespace WebProject.Models
             }
         }
 
-        int GetScoreByPlaceId(int id)
+        public int GetScoreByPlaceId(int id)
         {
             using (var db = new DBEntitiesProxy())
             {
@@ -40,7 +45,7 @@ namespace WebProject.Models
                 else return 0;
             }
         }
-        int GetScoreByUser(CreateRankingViewModel model)
+        public int GetScoreByUser(CreateRankingViewModel model)
         {
             using (var db = new DBEntitiesProxy())
             {
@@ -52,7 +57,7 @@ namespace WebProject.Models
                 else return 0;
             }
         }
-        void UpdateRanking(CreateRankingViewModel model)
+        public void UpdateRanking(CreateRankingViewModel model)
         {
             using (var db = new DBEntitiesProxy())
             {

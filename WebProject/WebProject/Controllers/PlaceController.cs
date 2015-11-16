@@ -32,6 +32,22 @@ namespace WebProject.Controllers
             }
 
         }
+        public ActionResult GetPlaceByRanking()
+        {
+            return PartialView("PartialPlace", placeModel.GetPlacesByRanking());
+        }
+        public ActionResult GetPlaceByPopularDESC()
+        {
+            return PartialView("PartialPlace", placeModel.GetPlacesByPopularDesc());
+        }
+        public ActionResult GetPlaceByPopularASC()
+        {
+            return PartialView("PartialPlace",placeModel.GetPlacesByPopularASC());
+        }
+        public ActionResult GetPlaceByAddDate()
+        {
+            return PartialView("PartialPlace", placeModel.GetPlacesByAdds());
+        }
         public ActionResult SetRanking(CreateRankingViewModel model)
         {
             return View();
