@@ -17,6 +17,7 @@ namespace WebProject.Models
         public int PlaceId { get; set; }
         public int UserId { get; set; }
         public int Score { get; set; }
+        public int RankingId { get; set; }
     
         public virtual Place Place { get; set; }
         public virtual User User { get; set; }

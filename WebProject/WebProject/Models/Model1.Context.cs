@@ -13,10 +13,10 @@ namespace WebProject.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class webprojectDBEntities : DbContext
+    public partial class webprojectDBEntities2 : DbContext
     {
-        public webprojectDBEntities()
-            : base("name=webprojectDBEntities")
+        public webprojectDBEntities2()
+            : base("name=webprojectDBEntities2")
         {
         }
     
@@ -28,8 +28,8 @@ namespace WebProject.Models
         public virtual DbSet<COMMENT> COMMENT { get; set; }
         public virtual DbSet<Country> Country { get; set; }
         public virtual DbSet<Place> Place { get; set; }
-        public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Ranking> Ranking { get; set; }
-        public virtual DbSet<Travels> TravelsSet { get; set; }
+        public virtual DbSet<Travels> Travels { get; set; }
+        public virtual DbSet<User> User { get; set; }
     }
 }

@@ -35,6 +35,21 @@
         </tr>
     }
 </table>
+<h2>Places visited by user</h2>
+<table class="table table-striped">
+    @foreach (var item in Model.Visited)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>@Html.ActionLink("see", "Details", "Place", new { id = item.PlaceId }, null)</td>
+        </tr>
+    }
+</table>
 <h2>Comments added by user</h2>
 <table class="table table-striped">
     @foreach (var item in Model.Comments)

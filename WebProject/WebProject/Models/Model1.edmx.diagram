@@ -4,22 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="043cd8c72adf41119308bd8783bca712" Name="Diagram1">
-        <EntityTypeShape EntityType="webprojectDBModel.COMMENT" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="webprojectDBModel.Country" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="webprojectDBModel.Place" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="webprojectDBModel.User" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
+      <Diagram DiagramId="1f8a1f0e5ac54d108b55afd1ca9b10ff" Name="Diagram1">
+        <EntityTypeShape EntityType="webprojectDBModel.COMMENT" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="webprojectDBModel.Country" Width="1.5" PointX="3.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="webprojectDBModel.Place" Width="1.5" PointX="6" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="webprojectDBModel.Ranking" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="webprojectDBModel.Travels" Width="1.5" PointX="8.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="webprojectDBModel.User" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
         <AssociationConnector Association="webprojectDBModel.FKCPlaceId" ManuallyRouted="false" />
         <AssociationConnector Association="webprojectDBModel.FKCUserId" ManuallyRouted="false" />
         <AssociationConnector Association="webprojectDBModel.FKPCountryId" ManuallyRouted="false" />
         <AssociationConnector Association="webprojectDBModel.FKPUserId" ManuallyRouted="false" />
-        <AssociationConnector Association="webprojectDBModel.TRAVELS" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="webprojectDBModel.Ranking" Width="1.5" PointX="7.5" PointY="8.375" />
-        <AssociationConnector Association="webprojectDBModel.FKRPlaceId" />
-        <AssociationConnector Association="webprojectDBModel.FKRUserId" />
-        <EntityTypeShape EntityType="webprojectDBModel.Travels" Width="1.5" PointX="10.5" PointY="5.375" />
-        <AssociationConnector Association="webprojectDBModel.FKTPlaceId" />
-        <AssociationConnector Association="webprojectDBModel.FKTUserId" />
+        <AssociationConnector Association="webprojectDBModel.FKRPlaceId" ManuallyRouted="false" />
+        <AssociationConnector Association="webprojectDBModel.FKTPlaceId" ManuallyRouted="false" />
+        <AssociationConnector Association="webprojectDBModel.FKRUserId" ManuallyRouted="false" />
+        <AssociationConnector Association="webprojectDBModel.FKTUserId" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

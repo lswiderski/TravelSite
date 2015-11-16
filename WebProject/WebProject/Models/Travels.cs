@@ -17,6 +17,7 @@ namespace WebProject.Models
         public int PlaceId { get; set; }
         public int UserId { get; set; }
         public System.DateTime Date { get; set; }
+        public int TravelId { get; set; }
     
         public virtual Place Place { get; set; }
         public virtual User User { get; set; }

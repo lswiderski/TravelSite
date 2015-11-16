@@ -8,77 +8,56 @@ using WebProject.Models.ViewModels;
 
 namespace WebProject.Controllers
 {
-    public class PlaceController : Controller
+    public class TravelsController : Controller
     {
-        UserModel userModel = new UserModel();
-        PlaceModel placeModel = new PlaceModel();
-        // GET: Places
+        private TravelsService travelsService = new TravelsService();
+        // GET: Travels
         public ActionResult Index()
         {
-            bool isAdmin = false;
-            if (Request.IsAuthenticated)
-            {
-                isAdmin = userModel.CheckIfIsAdmin(User.Identity.Name);
-
-            }
-            ViewBag.Admin = isAdmin;
-            if (isAdmin)
-            {
-                return View(placeModel.GetPlaces());
-            }
-            else
-            {
-                return View(placeModel.GetAccpetedPlaces());
-            }
-
-        }
-        public ActionResult SetRanking(CreateRankingViewModel model)
-        {
             return View();
         }
-        // GET: Place/Details/5
+
+        // GET: Travels/Details/5
         public ActionResult Details(int id)
         {
-            ViewBag.PlaceId = id;
-            return View(placeModel.GetPlace(id));
-        }
-        public ActionResult PlaceByUser(int id)
-        {
-            return PartialView(placeModel.GetPlacesAddedByUser(id));
-        }
-
-        // GET: Place/Create
-        public ActionResult Create()
-        {
             return View();
         }
 
-        // POST: Place/Create
+        // GET: Travels/Create
+        public ActionResult Create(string UserEmail, int PlaceId)
+        {
+            CreateTravelViewModel model = new CreateTravelViewModel() { PlaceId = PlaceId, UserEmail = UserEmail, Date = System.DateTime.Now };
+            travelsService.Create(model);
+            return RedirectToAction("Index","Place");
+        }
+
+        // POST: Travels/Create
         [HttpPost]
-        public ActionResult Create(CreatePlaceViewModel model)
+        public ActionResult Create(CreateTravelViewModel model)
         {
             try
             {
-                if (ModelState.IsValid)
+                if(ModelState.IsValid)
                 {
-                    placeModel.Create(model);
+                    model.Date = System.DateTime.Now;
+                    travelsService.Create(model);
                 }
+
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View(model);
+                return PartialView();
             }
-            return View(model);
         }
 
-        // GET: Place/Edit/5
+        // GET: Travels/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Place/Edit/5
+        // POST: Travels/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -94,13 +73,13 @@ namespace WebProject.Controllers
             }
         }
 
-        // GET: Place/Delete/5
+        // GET: Travels/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Place/Delete/5
+        // POST: Travels/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

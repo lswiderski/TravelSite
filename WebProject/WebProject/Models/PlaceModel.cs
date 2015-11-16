@@ -59,7 +59,7 @@ namespace WebProject.Models
         {
             using (var db = new DBEntitiesProxy())
             {
-                return db.Place.Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName + " " + x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI }).Where(x => x.PlaceId == id).SingleOrDefault();
+                return db.Place.Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName + " " + x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI, Score = (int)x.Ranking }).Where(x => x.PlaceId == id).SingleOrDefault();
             }
 
         }

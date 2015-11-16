@@ -23,5 +23,7 @@ namespace WebProject.Models.ViewModels
         public string UserName { get; set; }
 
         public bool IsAccepted { get; set; }
+
+        public int Score { get; set; }
     }
 }

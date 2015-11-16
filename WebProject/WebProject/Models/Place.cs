@@ -18,7 +18,6 @@ namespace WebProject.Models
         public Place()
         {
             this.COMMENT = new HashSet<COMMENT>();
-            this.User1 = new HashSet<User>();
             this.Ranking1 = new HashSet<Ranking>();
             this.Travels = new HashSet<Travels>();
         }
@@ -36,8 +35,6 @@ namespace WebProject.Models
         public virtual ICollection<COMMENT> COMMENT { get; set; }
         public virtual Country Country { get; set; }
         public virtual User User { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> User1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ranking> Ranking1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

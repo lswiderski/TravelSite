@@ -127,6 +127,7 @@ namespace WebProject.Models
                         UserId = x.UserId,
                         Comments = x.COMMENT.Select(y => new CreateCommentViewModel { CommentId = y.CommentId, Content = y.Content, Date = y.Date, PlaceId = y.PlaceId, UserEmail = y.User.Email, UserId = y.UserId }).ToList(),
                         Places = x.Place.Select(y => new PlaceViewModel { Content = y.Content, PlaceId = y.PlaceId, Country = y.Country.Name, IsAccepted = y.IsAccepted, Name = y.Name, Photo_URI = y.Photo_URI, UserName = y.User.Email }).ToList(),
+                        Visited = x.Travels.Select(y => new PlaceViewModel { Content = y.Place.Content, PlaceId = y.PlaceId, Country = y.Place.Country.Name, IsAccepted = y.Place.IsAccepted, Name = y.Place.Name, Photo_URI = y.Place.Photo_URI, UserName = y.User.Email }).ToList(),
                     }
                         ).SingleOrDefault();
 

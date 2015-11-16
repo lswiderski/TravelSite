@@ -19,7 +19,6 @@ namespace WebProject.Models
         {
             this.COMMENT = new HashSet<COMMENT>();
             this.Place = new HashSet<Place>();
-            this.Place1 = new HashSet<Place>();
             this.Ranking = new HashSet<Ranking>();
             this.Travels = new HashSet<Travels>();
         }
@@ -40,8 +39,6 @@ namespace WebProject.Models
         public virtual ICollection<COMMENT> COMMENT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Place> Place { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Place> Place1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ranking> Ranking { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace WebProject.Models
+namespace WebProject.Models.ViewModels
 {
-    public class RankingModel
+    public class CreateRankingViewModel
     {
+        public string UserEmail { get; set; }
         public int PlaceId { get; set; }
-        public int UserId { get; set; }
         public int Score { get; set; }
     }
 }

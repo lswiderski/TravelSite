@@ -39,5 +39,7 @@ namespace WebProject.Models.ViewModels
 
         public List<PlaceViewModel> Places;
 
+        public List<PlaceViewModel> Visited;
+
     }
 }

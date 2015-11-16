@@ -3,6 +3,12 @@
     padding-bottom: 20px;
 }
 
+.jumbotron{
+    background-image: url("/Content/banner.jpg");
+
+}
+
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;

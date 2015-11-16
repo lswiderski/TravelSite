@@ -1,0 +1,9 @@
+﻿@model WebProject.Models.ViewModels.CreateRankingViewModel
+
+@using (Html.BeginForm())
+{
+    @Html.DropDownListFor(model => model.Score, new SelectList(new int[] {1,2,3,4,5 }))
+    @Html.HiddenFor(model => model.UserEmail, new {@Value = Model.UserEmail })
+    @Html.HiddenFor(model => model.PlaceId, new { @Value = ViewBag.PlaceId })
+<button type = "submit" class="btn btn-default">Add</button>
+}

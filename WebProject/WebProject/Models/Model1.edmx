@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="webprojectDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="webprojectDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="COMMENT">
           <Key>
             <PropertyRef Name="CommentId" />
@@ -36,29 +36,23 @@
           <Property Name="IsAccepted" Type="bit" Nullable="false" />
           <Property Name="Ranking" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'webprojectDB.dbo.Ranking' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Ranking">
           <Key>
-            <PropertyRef Name="PlaceId" />
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="Score" />
+            <PropertyRef Name="RankingId" />
           </Key>
           <Property Name="PlaceId" Type="int" Nullable="false" />
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="Score" Type="int" Nullable="false" />
+          <Property Name="RankingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'webprojectDB.dbo.Travels' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Travels">
           <Key>
-            <PropertyRef Name="PlaceId" />
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="Date" />
+            <PropertyRef Name="TravelId" />
           </Key>
           <Property Name="PlaceId" Type="int" Nullable="false" />
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="TravelId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -176,21 +170,9 @@ warning 6002: The table/view 'webprojectDB.dbo.Travels' does not have a primary 
           <EntitySet Name="COMMENT" EntityType="Self.COMMENT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Place" EntityType="Self.Place" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ranking" EntityType="Self.Ranking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Travels" EntityType="Self.Travels" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Ranking" EntityType="Self.Ranking" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Ranking].[PlaceId] AS [PlaceId], 
-    [Ranking].[UserId] AS [UserId], 
-    [Ranking].[Score] AS [Score]
-    FROM [dbo].[Ranking] AS [Ranking]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Travels" EntityType="Self.Travels" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Travels].[PlaceId] AS [PlaceId], 
-    [Travels].[UserId] AS [UserId], 
-    [Travels].[Date] AS [Date]
-    FROM [dbo].[Travels] AS [Travels]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FKCPlaceId" Association="Self.FKCPlaceId">
             <End Role="Place" EntitySet="Place" />
             <End Role="COMMENT" EntitySet="COMMENT" />
@@ -224,7 +206,8 @@ warning 6002: The table/view 'webprojectDB.dbo.Travels' does not have a primary 
             <End Role="Travels" EntitySet="Travels" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="webprojectDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -260,13 +243,34 @@ warning 6002: The table/view 'webprojectDB.dbo.Travels' does not have a primary 
           <Property Name="CountryId" Type="Int32" Nullable="false" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="IsAccepted" Type="Boolean" Nullable="false" />
+          <Property Name="Ranking" Type="Int32" />
           <NavigationProperty Name="COMMENT" Relationship="Self.FKCPlaceId" FromRole="Place" ToRole="COMMENT" />
           <NavigationProperty Name="Country" Relationship="Self.FKPCountryId" FromRole="Place" ToRole="Country" />
           <NavigationProperty Name="User" Relationship="Self.FKPUserId" FromRole="Place" ToRole="User" />
-          <NavigationProperty Name="User1" Relationship="Self.TRAVELS" FromRole="Place" ToRole="User" />
-          <Property Name="Ranking" Type="Int32" />
-          <NavigationProperty Name="Ranking1" Relationship="webprojectDBModel.FKRPlaceId" FromRole="Place" ToRole="Ranking" />
-          <NavigationProperty Name="Travels" Relationship="webprojectDBModel.FKTPlaceId" FromRole="Place" ToRole="Travels1" />
+          <NavigationProperty Name="Ranking1" Relationship="Self.FKRPlaceId" FromRole="Place" ToRole="Ranking" />
+          <NavigationProperty Name="Travels" Relationship="Self.FKTPlaceId" FromRole="Place" ToRole="Travels" />
+        </EntityType>
+        <EntityType Name="Ranking">
+          <Key>
+            <PropertyRef Name="RankingId" />
+          </Key>
+          <Property Name="PlaceId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Score" Type="Int32" Nullable="false" />
+          <Property Name="RankingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Place" Relationship="Self.FKRPlaceId" FromRole="Ranking" ToRole="Place" />
+          <NavigationProperty Name="User" Relationship="Self.FKRUserId" FromRole="Ranking" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Travels">
+          <Key>
+            <PropertyRef Name="TravelId" />
+          </Key>
+          <Property Name="PlaceId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TravelId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Place" Relationship="Self.FKTPlaceId" FromRole="Travels" ToRole="Place" />
+          <NavigationProperty Name="User" Relationship="Self.FKTUserId" FromRole="Travels" ToRole="User" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -281,13 +285,12 @@ warning 6002: The table/view 'webprojectDB.dbo.Travels' does not have a primary 
           <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="COMMENT" Relationship="Self.FKCUserId" FromRole="User" ToRole="COMMENT" />
           <NavigationProperty Name="Place" Relationship="Self.FKPUserId" FromRole="User" ToRole="Place" />
-          <NavigationProperty Name="Place1" Relationship="Self.TRAVELS" FromRole="User" ToRole="Place" />
-          <Property Name="Country" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Ranking" Relationship="webprojectDBModel.FKRUserId" FromRole="User" ToRole="Ranking" />
-          <NavigationProperty Name="Travels" Relationship="webprojectDBModel.FKTUserId" FromRole="User" ToRole="Travels1" />
+          <NavigationProperty Name="Ranking" Relationship="Self.FKRUserId" FromRole="User" ToRole="Ranking" />
+          <NavigationProperty Name="Travels" Relationship="Self.FKTUserId" FromRole="User" ToRole="Travels" />
         </EntityType>
         <Association Name="FKCPlaceId">
           <End Role="Place" Type="Self.Place" Multiplicity="1" />
@@ -337,14 +340,60 @@ warning 6002: The table/view 'webprojectDB.dbo.Travels' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="TRAVELS">
-          <End Role="Place" Type="Self.Place" Multiplicity="*" />
-          <End Role="User" Type="Self.User" Multiplicity="*" />
+        <Association Name="FKRPlaceId">
+          <End Role="Place" Type="Self.Place" Multiplicity="1" />
+          <End Role="Ranking" Type="Self.Ranking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Place">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="Ranking">
+              <PropertyRef Name="PlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="webprojectDBEntities" annotation:LazyLoadingEnabled="true">
+        <Association Name="FKTPlaceId">
+          <End Role="Place" Type="Self.Place" Multiplicity="1" />
+          <End Role="Travels" Type="Self.Travels" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Place">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="Travels">
+              <PropertyRef Name="PlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKRUserId">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Ranking" Type="Self.Ranking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Ranking">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKTUserId">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Travels" Type="Self.Travels" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Travels">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="webprojectDBEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="COMMENT" EntityType="Self.COMMENT" />
           <EntitySet Name="Country" EntityType="Self.Country" />
           <EntitySet Name="Place" EntityType="Self.Place" />
+          <EntitySet Name="Ranking" EntityType="Self.Ranking" />
+          <EntitySet Name="Travels" EntityType="Self.Travels" />
           <EntitySet Name="User" EntityType="Self.User" />
           <AssociationSet Name="FKCPlaceId" Association="Self.FKCPlaceId">
             <End Role="Place" EntitySet="Place" />
@@ -362,107 +411,29 @@ warning 6002: The table/view 'webprojectDB.dbo.Travels' does not have a primary 
             <End Role="User" EntitySet="User" />
             <End Role="Place" EntitySet="Place" />
           </AssociationSet>
-          <AssociationSet Name="TRAVELS" Association="Self.TRAVELS">
-            <End Role="Place" EntitySet="Place" />
-            <End Role="User" EntitySet="User" />
-          </AssociationSet>
-          <EntitySet Name="Ranking" EntityType="webprojectDBModel.Ranking" />
-          <AssociationSet Name="FKRPlaceId" Association="webprojectDBModel.FKRPlaceId">
+          <AssociationSet Name="FKRPlaceId" Association="Self.FKRPlaceId">
             <End Role="Place" EntitySet="Place" />
             <End Role="Ranking" EntitySet="Ranking" />
           </AssociationSet>
-          <AssociationSet Name="FKRUserId" Association="webprojectDBModel.FKRUserId">
+          <AssociationSet Name="FKTPlaceId" Association="Self.FKTPlaceId">
+            <End Role="Place" EntitySet="Place" />
+            <End Role="Travels" EntitySet="Travels" />
+          </AssociationSet>
+          <AssociationSet Name="FKRUserId" Association="Self.FKRUserId">
             <End Role="User" EntitySet="User" />
             <End Role="Ranking" EntitySet="Ranking" />
           </AssociationSet>
-          <EntitySet Name="TravelsSet" EntityType="webprojectDBModel.Travels" />
-          <AssociationSet Name="FKTPlaceId" Association="webprojectDBModel.FKTPlaceId">
-            <End Role="Place" EntitySet="Place" />
-            <End Role="Travels1" EntitySet="TravelsSet" />
-          </AssociationSet>
-          <AssociationSet Name="FKTUserId" Association="webprojectDBModel.FKTUserId">
+          <AssociationSet Name="FKTUserId" Association="Self.FKTUserId">
             <End Role="User" EntitySet="User" />
-            <End Role="Travels1" EntitySet="TravelsSet" />
+            <End Role="Travels" EntitySet="Travels" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Ranking">
-          <Key>
-            <PropertyRef Name="PlaceId" />
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="Score" />
-          </Key>
-          <Property Name="PlaceId" Type="Int32" Nullable="false" />
-          <Property Name="UserId" Type="Int32" Nullable="false" />
-          <Property Name="Score" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Place" Relationship="webprojectDBModel.FKRPlaceId" FromRole="Ranking" ToRole="Place" />
-          <NavigationProperty Name="User" Relationship="webprojectDBModel.FKRUserId" FromRole="Ranking" ToRole="User" />
-        </EntityType>
-        <Association Name="FKRPlaceId">
-          <End Type="webprojectDBModel.Place" Role="Place" Multiplicity="1" />
-          <End Type="webprojectDBModel.Ranking" Role="Ranking" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Place">
-              <PropertyRef Name="PlaceId" />
-            </Principal>
-            <Dependent Role="Ranking">
-              <PropertyRef Name="PlaceId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FKRUserId">
-          <End Type="webprojectDBModel.User" Role="User" Multiplicity="1" />
-          <End Type="webprojectDBModel.Ranking" Role="Ranking" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="Ranking">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Travels">
-          <Key>
-            <PropertyRef Name="PlaceId" />
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="Date" />
-          </Key>
-          <Property Name="PlaceId" Type="Int32" Nullable="false" />
-          <Property Name="UserId" Type="Int32" Nullable="false" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Place" Relationship="webprojectDBModel.FKTPlaceId" FromRole="Travels1" ToRole="Place" />
-          <NavigationProperty Name="User" Relationship="webprojectDBModel.FKTUserId" FromRole="Travels1" ToRole="User" />
-        </EntityType>
-        <Association Name="FKTPlaceId">
-          <End Type="webprojectDBModel.Place" Role="Place" Multiplicity="1" />
-          <End Type="webprojectDBModel.Travels" Role="Travels1" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Place">
-              <PropertyRef Name="PlaceId" />
-            </Principal>
-            <Dependent Role="Travels1">
-              <PropertyRef Name="PlaceId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FKTUserId">
-          <End Type="webprojectDBModel.User" Role="User" Multiplicity="1" />
-          <End Type="webprojectDBModel.Travels" Role="Travels1" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="Travels1">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="webprojectDBModelStoreContainer" CdmEntityContainer="webprojectDBEntities">
+        <EntityContainerMapping StorageEntityContainer="webprojectDBModelStoreContainer" CdmEntityContainer="webprojectDBEntities2">
           <EntitySetMapping Name="COMMENT">
             <EntityTypeMapping TypeName="webprojectDBModel.COMMENT">
               <MappingFragment StoreEntitySet="COMMENT">
@@ -486,7 +457,6 @@ warning 6002: The table/view 'webprojectDB.dbo.Travels' does not have a primary 
           <EntitySetMapping Name="Place">
             <EntityTypeMapping TypeName="webprojectDBModel.Place">
               <MappingFragment StoreEntitySet="Place">
-                <ScalarProperty Name="Ranking" ColumnName="Ranking" />
                 <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Content" ColumnName="Content" />
@@ -494,14 +464,33 @@ warning 6002: The table/view 'webprojectDB.dbo.Travels' does not have a primary 
                 <ScalarProperty Name="CountryId" ColumnName="CountryId" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="IsAccepted" ColumnName="IsAccepted" />
+                <ScalarProperty Name="Ranking" ColumnName="Ranking" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ranking">
+            <EntityTypeMapping TypeName="webprojectDBModel.Ranking">
+              <MappingFragment StoreEntitySet="Ranking">
+                <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="RankingId" ColumnName="RankingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Travels">
+            <EntityTypeMapping TypeName="webprojectDBModel.Travels">
+              <MappingFragment StoreEntitySet="Travels">
+                <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="TravelId" ColumnName="TravelId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="webprojectDBModel.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -511,24 +500,8 @@ warning 6002: The table/view 'webprojectDB.dbo.Travels' does not have a primary 
                 <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Ranking">
-            <EntityTypeMapping TypeName="webprojectDBModel.Ranking">
-              <MappingFragment StoreEntitySet="Ranking">
-                <ScalarProperty Name="Score" ColumnName="Score" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TravelsSet">
-            <EntityTypeMapping TypeName="webprojectDBModel.Travels">
-              <MappingFragment StoreEntitySet="Travels">
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

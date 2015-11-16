@@ -1,0 +1,8 @@
+﻿@model WebProject.Models.ViewModels.CreateTravelViewModel
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.UserEmail, new { @Value = User.Identity.Name })
+
+    @Html.ActionLink("Checked", "Create", "Travels", new { id = Model }, new { @class = "btn btn-success", type = "submit" })
+}
+
