@@ -29,9 +29,10 @@
             </div>
             <br /><br />
             <div class="form-group">
+                
                 @Html.LabelFor(model => model.CountryId, new { @class = "col-sm-2 control-label", @for = "inputCountry" })
                 <div class="col-sm-10">
-                    @Html.TextBoxFor(model => model.CountryId, new {  @class = "form-control", type = "text" })
+                    @Html.DropDownListFor(model => model.CountryId, new SelectList(Model.Countries, "CountryId", "Name"), new { @class = "form-control", @for = "inputCountry" })
                     @Html.ValidationMessageFor(model => model.CountryId)
                 </div>
             </div>

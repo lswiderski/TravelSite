@@ -17,5 +17,7 @@ namespace WebProject.Models.ViewModels
         public int CountryId { get; set; }
 
         public string UserEmail { get; set; }
+
+        public List<CountryModel> Countries { get; set; }
     }
 }

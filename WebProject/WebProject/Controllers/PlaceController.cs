@@ -55,6 +55,13 @@ namespace WebProject.Controllers
         // GET: Place/Details/5
         public ActionResult Details(int id)
         {
+            bool isAdmin = false;
+            if (Request.IsAuthenticated)
+            {
+                isAdmin = userModel.CheckIfIsAdmin(User.Identity.Name);
+
+            }
+            ViewBag.Admin = isAdmin;
             ViewBag.PlaceId = id;
             return View(placeModel.GetPlace(id));
         }
@@ -62,12 +69,18 @@ namespace WebProject.Controllers
         {
             return PartialView(placeModel.GetPlacesAddedByUser(id));
         }
+        public ActionResult Accept(int id)
+        {
+            placeModel.Accept(id);
+            return View(placeModel.GetPlace(id));
+        }
 
         // GET: Place/Create
         public ActionResult Create()
         {
-            return View();
+            return View(placeModel.GetCountriesForCreate());
         }
+        
 
         // POST: Place/Create
         [HttpPost]

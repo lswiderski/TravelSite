@@ -25,6 +25,18 @@ namespace WebProject.Models
 
         public bool IsAccepted { get; set; }
 
+        public CreatePlaceViewModel GetCountriesForCreate()
+        {
+            CreatePlaceViewModel model = new CreatePlaceViewModel();
+            model.Countries = new List<CountryModel>();
+            using (var db = new DBEntitiesProxy())
+            {
+                model.Countries = db.Country.Select(x => new CountryModel { Code = x.Code, CountryId = x.CountryId, Name = x.Name }).ToList();
+            }
+
+                return model;
+        }
+
         public void Create(CreatePlaceViewModel model)
         {
             var userModel = new UserModel();
