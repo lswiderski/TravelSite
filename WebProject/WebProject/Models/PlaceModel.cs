@@ -71,19 +71,19 @@ namespace WebProject.Models
         {
             using (var db = new DBEntitiesProxy())
             {
-                return db.Place.Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName + " " + x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI, Score = (int)x.Ranking }).Where(x => x.PlaceId == id).SingleOrDefault();
+                return db.Place.Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName + " " + x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI, Score = (int)x.Ranking, IsAccepted = x.IsAccepted}).Where(x => x.PlaceId == id).SingleOrDefault();
             }
 
         }
         public List<PlaceViewModel> GetPlaces()
         {
             var db = new DBEntitiesProxy();
-            return db.Place.Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName+" "+x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI }).ToList();
+            return db.Place.Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName+" "+x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI, IsAccepted = x.IsAccepted }).ToList();
         }
         public List<PlaceViewModel> GetPlacesByAdds()
         {
             var db = new DBEntitiesProxy();
-            return db.Place.Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName + " " + x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI }).Take(4).ToList();
+            return db.Place.Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName + " " + x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI, IsAccepted = x.IsAccepted }).Take(4).ToList();
         }
         public List<PlaceViewModel> GetPlacesByPopularDesc()
         {

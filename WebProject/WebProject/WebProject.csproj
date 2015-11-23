@@ -258,6 +258,7 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\TravelingEurope.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -300,6 +301,7 @@
     <Content Include="Views\Travels\Create.cshtml" />
     <Content Include="Views\Ranking\Create.cshtml" />
     <Content Include="Views\Place\PartialPlace.cshtml" />
+    <Content Include="Views\Place\NotAccepted.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

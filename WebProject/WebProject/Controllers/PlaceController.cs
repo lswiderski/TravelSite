@@ -32,6 +32,24 @@ namespace WebProject.Controllers
             }
 
         }
+        public ActionResult NotAccepted()
+        {
+            bool isAdmin = false;
+            if (Request.IsAuthenticated)
+            {
+                isAdmin = userModel.CheckIfIsAdmin(User.Identity.Name);
+
+            }
+            ViewBag.Admin = isAdmin;
+            if (isAdmin)
+            {
+                return View(placeModel.GetNotAccpetedPlaces());
+            }
+            else
+            {
+                return View(placeModel.GetAccpetedPlaces());
+            }
+        }
         public ActionResult GetPlaceByRanking()
         {
             return PartialView("PartialPlace", placeModel.GetPlacesByRanking());
@@ -72,7 +90,15 @@ namespace WebProject.Controllers
         public ActionResult Accept(int id)
         {
             placeModel.Accept(id);
-            return View(placeModel.GetPlace(id));
+            ViewBag.PlaceId = id;
+            bool isAdmin = false;
+            if (Request.IsAuthenticated)
+            {
+                isAdmin = userModel.CheckIfIsAdmin(User.Identity.Name);
+
+            }
+            ViewBag.Admin = isAdmin;
+            return View("Details",placeModel.GetPlace(id));
         }
 
         // GET: Place/Create

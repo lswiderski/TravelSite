@@ -23,8 +23,13 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Places", "Index", "Place")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>                    
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>  
+                    
+@if (ViewBag.Admin == true)
+{
                     <li>@Html.ActionLink("Countries", "Index", "Country")</li>
+                    <li>@Html.ActionLink("Accept", "NotAccepted", "Place")</li>
+}
                 </ul>
                
                 
