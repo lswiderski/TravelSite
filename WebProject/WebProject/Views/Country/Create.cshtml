@@ -1,9 +1,7 @@
 ﻿@model WebProject.Models.CountryModel
 @{
-    ViewBag.Title = "View";
+    ViewBag.Title = "Create Country";
 }
-
-<h2>Create Country</h2>
 
 @using (Html.BeginForm())
 {
@@ -16,7 +14,7 @@
             @Html.LabelFor(model => model.Code)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Code)
+            @Html.TextBoxFor(model => model.Code, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Code)
         </div>
 
@@ -24,12 +22,12 @@
             @Html.LabelFor(model => model.Name)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Name)
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Name)
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit"  class="btn btn-default" value="Create" />
         </p>
     </fieldset>
 }

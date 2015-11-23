@@ -29,5 +29,7 @@
         </tr>
     }
 </table>
-
+@if (Request.IsAuthenticated)
+{
     <h2>@Html.ActionLink("Create", "Create", "Place", new { @class = "btn btn-primary", role = "button" })</h2>
+}
