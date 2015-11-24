@@ -7,8 +7,10 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <img src="@Url.Content(Model.Photo_URI)" alt="Image" class="img-responsive img-thumbnail" style="max-height:400px; display: block; margin: auto;" />
-    </div>
+        <a data-lightbox="image-1" data-title="View" href="@Url.Content(Model.Photo_URI)">
+            <img src="@Url.Content(Model.Photo_URI)" alt="Image" class="img-responsive img-thumbnail" style="max-height:400px; display: block; margin: auto;" />
+       </a>
+</div>
     <div class="panel-body">
 
       
@@ -31,3 +33,6 @@
 <div id="comments">
     @{Html.RenderAction("Place", "Comment", new { id = ViewBag.PlaceId });}
 </div>
+
+
+
