@@ -12,4 +12,7 @@
 </div>
 }
 
+@if (Request.IsAuthenticated)
+{
 <h2>@Html.ActionLink("add new comment", "Create", "Comment", new { id = ViewBag.PlaceId }, new { @class = "btn btn-primary", role = "button" })</h2>
+}

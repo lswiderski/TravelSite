@@ -42,6 +42,7 @@ namespace WebProject.Models
             var userModel = new UserModel();
             using (var db = new DBEntitiesProxy())
             {
+                var userid = userModel.GetUserID(model.UserEmail);
                 db.Place.Add(new Place()
                 {
                     Name = model.Name,
@@ -49,7 +50,12 @@ namespace WebProject.Models
                     Photo_URI = model.Photo_URI,
                     CountryId = model.CountryId,
                     IsAccepted = false,
-                    UserId = userModel.GetUserID(model.UserEmail)
+                    UserId = userid,
+                    AddDate = System.DateTime.Now,
+                    Ranking = 1,
+                    ContentPL = model.Content,
+                    ContentPT = model.Content,
+                  
                 });
                 db.SaveChanges();
             }
@@ -83,22 +89,22 @@ namespace WebProject.Models
         public List<PlaceViewModel> GetPlacesByAdds()
         {
             var db = new DBEntitiesProxy();
-            return db.Place.Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName + " " + x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI, IsAccepted = x.IsAccepted }).Take(4).ToList();
+            return db.Place.Where(x => x.IsAccepted == true).Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName + " " + x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI, IsAccepted = x.IsAccepted }).Take(4).ToList();
         }
         public List<PlaceViewModel> GetPlacesByPopularDesc()
         {
             var db = new DBEntitiesProxy();
-            return db.Place.OrderByDescending(x=>x.Travels.Count).Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName + " " + x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI }).Take(4).ToList();
+            return db.Place.Where(x=>x.IsAccepted==true).OrderByDescending(x=>x.Travels.Count).Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName + " " + x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI }).Take(4).ToList();
         }
         public List<PlaceViewModel> GetPlacesByRanking()
         {
             var db = new DBEntitiesProxy();
-            return db.Place.OrderByDescending(x => x.Ranking.Value).Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName + " " + x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI }).Take(4).ToList();
+            return db.Place.Where(x => x.IsAccepted == true).OrderByDescending(x => x.Ranking.Value).Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName + " " + x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI }).Take(4).ToList();
         }
         public List<PlaceViewModel> GetPlacesByPopularASC()
         {
             var db = new DBEntitiesProxy();
-            return db.Place.OrderBy(x => x.Travels.Count).Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName + " " + x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI }).Take(4).ToList();
+            return db.Place.Where(x => x.IsAccepted == true).OrderBy(x => x.Travels.Count).Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName + " " + x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI }).Take(4).ToList();
         }
         public List<PlaceViewModel> GetAccpetedPlaces()
         {

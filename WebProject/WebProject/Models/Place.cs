@@ -30,6 +30,9 @@ namespace WebProject.Models
         public int UserId { get; set; }
         public bool IsAccepted { get; set; }
         public Nullable<int> Ranking { get; set; }
+        public Nullable<System.DateTime> AddDate { get; set; }
+        public string ContentPL { get; set; }
+        public string ContentPT { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<COMMENT> COMMENT { get; set; }

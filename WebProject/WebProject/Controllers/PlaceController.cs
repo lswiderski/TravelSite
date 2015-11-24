@@ -117,14 +117,14 @@ namespace WebProject.Controllers
                 if (ModelState.IsValid)
                 {
                     placeModel.Create(model);
+                    return RedirectToAction("Index");
                 }
-                return RedirectToAction("Index");
+                return View(placeModel.GetCountriesForCreate());
             }
             catch
             {
-                return View(model);
+                return View(placeModel.GetCountriesForCreate());
             }
-            return View(model);
         }
 
         // GET: Place/Edit/5

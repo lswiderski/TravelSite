@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="webprojectDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="webprojectDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="COMMENT">
           <Key>
             <PropertyRef Name="CommentId" />
@@ -30,11 +30,14 @@
           <Property Name="PlaceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="Content" Type="ntext" Nullable="false" />
-          <Property Name="Photo_URI" Type="nchar" MaxLength="150" />
+          <Property Name="Photo_URI" Type="nchar" MaxLength="200" />
           <Property Name="CountryId" Type="int" Nullable="false" />
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="IsAccepted" Type="bit" Nullable="false" />
           <Property Name="Ranking" Type="int" />
+          <Property Name="AddDate" Type="datetime" />
+          <Property Name="ContentPL" Type="ntext" />
+          <Property Name="ContentPT" Type="ntext" />
         </EntityType>
         <EntityType Name="Ranking">
           <Key>
@@ -206,8 +209,7 @@
             <End Role="Travels" EntitySet="Travels" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="webprojectDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -239,7 +241,7 @@
           <Property Name="PlaceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Photo_URI" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
+          <Property Name="Photo_URI" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
           <Property Name="CountryId" Type="Int32" Nullable="false" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="IsAccepted" Type="Boolean" Nullable="false" />
@@ -249,6 +251,9 @@
           <NavigationProperty Name="User" Relationship="Self.FKPUserId" FromRole="Place" ToRole="User" />
           <NavigationProperty Name="Ranking1" Relationship="Self.FKRPlaceId" FromRole="Place" ToRole="Ranking" />
           <NavigationProperty Name="Travels" Relationship="Self.FKTPlaceId" FromRole="Place" ToRole="Travels" />
+          <Property Name="AddDate" Type="DateTime" Precision="3" />
+          <Property Name="ContentPL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ContentPT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Ranking">
           <Key>
@@ -457,6 +462,9 @@
           <EntitySetMapping Name="Place">
             <EntityTypeMapping TypeName="webprojectDBModel.Place">
               <MappingFragment StoreEntitySet="Place">
+                <ScalarProperty Name="ContentPT" ColumnName="ContentPT" />
+                <ScalarProperty Name="ContentPL" ColumnName="ContentPL" />
+                <ScalarProperty Name="AddDate" ColumnName="AddDate" />
                 <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Content" ColumnName="Content" />
