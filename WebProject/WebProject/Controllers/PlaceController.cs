@@ -8,7 +8,7 @@ using WebProject.Models.ViewModels;
 
 namespace WebProject.Controllers
 {
-    public class PlaceController : Controller
+    public class PlaceController : BaseController
     {
         UserModel userModel = new UserModel();
         PlaceModel placeModel = new PlaceModel();

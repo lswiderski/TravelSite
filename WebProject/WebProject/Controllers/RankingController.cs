@@ -8,7 +8,7 @@ using WebProject.Models.ViewModels;
 
 namespace WebProject.Controllers
 {
-    public class RankingController : Controller
+    public class RankingController : BaseController
     {
         private RankingService rankingService = new RankingService();
         // GET: Ranking

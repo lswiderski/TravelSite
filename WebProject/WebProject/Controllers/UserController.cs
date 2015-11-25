@@ -9,7 +9,7 @@ using WebProject.Models.ViewModels;
 
 namespace WebProject.Controllers
 {
-    public class UserController : Controller
+    public class UserController : BaseController
     {
         UserModel userModel = new UserModel();
 

@@ -8,7 +8,7 @@ using WebProject.Models.ViewModels;
 
 namespace WebProject.Controllers
 {
-    public class CommentController : Controller
+    public class CommentController : BaseController
     {
         CommentModel commentModel = new CommentModel();
 

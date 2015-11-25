@@ -4,14 +4,14 @@
 {
     <ul class="nav navbar-nav navbar-right">
         <li>@Html.ActionLink(Html.Encode(User.Identity.Name), "DetailsM", "User", new { email = Html.Encode(User.Identity.Name) }, null)</li>
-        <li>@Html.ActionLink("Sign Out", "Logout", "User")</li>
+        <li>@Html.ActionLink(Resources.Resource.SignOut, "Logout", "User")</li>
     </ul>
 
 }
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Create", "User")</li>
-        <li>@Html.ActionLink("Sign In", "Login", "User")</li>
+        <li>@Html.ActionLink(Resources.Resource.Register, "Create", "User")</li>
+        <li>@Html.ActionLink(Resources.Resource.SignIn, "Login", "User")</li>
     </ul>
 }

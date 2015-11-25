@@ -7,7 +7,7 @@ using WebProject.Models;
 
 namespace WebProject.Controllers
 {
-    public class CountryController : Controller
+    public class CountryController : BaseController
     {
         CountryModel countryModel = new CountryModel();
         UserModel userModel = new UserModel();

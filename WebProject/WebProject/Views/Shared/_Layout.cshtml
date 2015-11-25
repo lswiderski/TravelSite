@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using System.Threading;
+@using System.Globalization;
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -37,12 +39,36 @@
                 <ul class="nav navbar-nav navbar-right ">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                            Language <span class="caret"></span>
+                            @Resources.Resource.Language <span class="caret"></span>
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Polski</a></li>
-                            <li><a href="#">Portuguese</a></li>
-                        </ul>
+@{
+    CultureInfo currentCulture = Thread.CurrentThread.CurrentCulture;
+    switch (currentCulture.TwoLetterISOLanguageName)
+    {
+        case "en":
+
+            <ul class="dropdown-menu">
+                <li><a href="/Home/ChangeLanguage?culture=pl-PL">Polski</a></li>
+                <li><a href="/Home/ChangeLanguage?culture=pt-PT">Portuguese</a></li>
+            </ul>
+            break;
+        case "pl":
+
+            <ul class="dropdown-menu">
+                <li><a href="/Home/ChangeLanguage?culture=en-US">English</a></li>
+                <li><a href="/Home/ChangeLanguage?culture=pt-PT">Portuguese</a></li>
+            </ul>
+            break;
+        case "pt":
+
+            <ul class="dropdown-menu">
+                <li><a href="/Home/ChangeLanguage?culture=pl-PL">Polski</a></li>
+                <li><a href="/Home/ChangeLanguage?culture=en-US">English</a></li>
+            </ul>
+            break;
+    }
+}
+                        
                     </li>  
                 </ul>
                 @Html.Partial("_LoginPartial")

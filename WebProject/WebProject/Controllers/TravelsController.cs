@@ -8,7 +8,7 @@ using WebProject.Models.ViewModels;
 
 namespace WebProject.Controllers
 {
-    public class TravelsController : Controller
+    public class TravelsController : BaseController
     {
         private TravelsService travelsService = new TravelsService();
         // GET: Travels
