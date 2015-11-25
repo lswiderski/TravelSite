@@ -1,4 +1,6 @@
-﻿@model WebProject.Models.ViewModels.PlaceViewModel
+﻿@using System.Threading;
+@using System.Globalization;
+@model WebProject.Models.ViewModels.PlaceViewModel
 @{
     ViewBag.Title = @Html.DisplayFor(model => model.Name);
 }
@@ -16,7 +18,22 @@
       
 
         <div class="display-field">
-            @Html.DisplayFormattedData(Model.Content)
+@{
+    CultureInfo currentCulture = Thread.CurrentThread.CurrentCulture;
+    switch (currentCulture.TwoLetterISOLanguageName)
+    {
+        case "en":
+            @Html.DisplayFormattedData(Model.Content);
+            break;
+        case "pl":
+            @Html.DisplayFormattedData(Model.ContentPL);
+            break;
+        case "pt":
+            @Html.DisplayFormattedData(Model.ContentPT);
+            break;
+    }
+     }
+            
         </div>
     </div>
 </div>

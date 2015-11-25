@@ -53,8 +53,8 @@ namespace WebProject.Models
                     UserId = userid,
                     AddDate = System.DateTime.Now,
                     Ranking = 1,
-                    ContentPL = model.Content,
-                    ContentPT = model.Content,
+                    ContentPL = model.ContentPL,
+                    ContentPT = model.ContentPT,
                   
                 });
                 db.SaveChanges();
@@ -77,7 +77,7 @@ namespace WebProject.Models
         {
             using (var db = new DBEntitiesProxy())
             {
-                return db.Place.Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName + " " + x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI, Score = (int)x.Ranking, IsAccepted = x.IsAccepted}).Where(x => x.PlaceId == id).SingleOrDefault();
+                return db.Place.Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, ContentPL = x.ContentPL, ContentPT = x.ContentPT, UserName = x.User.FirstName + " " + x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI, Score = (int)x.Ranking, IsAccepted = x.IsAccepted}).Where(x => x.PlaceId == id).SingleOrDefault();
             }
 
         }

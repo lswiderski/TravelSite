@@ -25,5 +25,8 @@ namespace WebProject.Models.ViewModels
         public bool IsAccepted { get; set; }
 
         public int Score { get; set; }
+        public string ContentPT { get; set; }
+        public string ContentPL { get; set; }
+
     }
 }
