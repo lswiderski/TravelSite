@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<WebProject.Models.ViewModels.CreateCommentViewModel>
 
-<h2>Comments</h2>
+<h2>@Resources.Resource.Comments</h2>
 
 @foreach (var item in Model)
 {
@@ -14,5 +14,5 @@
 
 @if (Request.IsAuthenticated)
 {
-<h2>@Html.ActionLink("add new comment", "Create", "Comment", new { id = ViewBag.PlaceId }, new { @class = "btn btn-primary", role = "button" })</h2>
+<h2>@Html.ActionLink(Resources.Resource.AddComment, "Create", "Comment", new { id = ViewBag.PlaceId }, new { @class = "btn btn-primary", role = "button" })</h2>
 }

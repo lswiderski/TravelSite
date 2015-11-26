@@ -1,9 +1,9 @@
 ﻿@model WebProject.Models.ViewModels.AllUserInfoViewModel
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Resources.Resource.UserDetails;
 }
 
-<h2>User Details</h2>
+<h2> Resources.Resource.UserDetails</h2>
 
 
 <div class="display-field">
@@ -20,7 +20,7 @@
     @Html.DisplayFor(model => model.LastName)
 </div>
 
-<h2>Places added by user</h2>
+<h2>@Resources.Resource.PlacesAddedByUser</h2>
 <table class="table table-striped">
     @foreach (var item in Model.Places)
     {
@@ -31,15 +31,15 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Country)
             </td>
-            <td>@Html.ActionLink("see", "Details", "Place", new { id = item.PlaceId }, null)</td>
+            <td>@Html.ActionLink(@Resources.Resource.See, "Details", "Place", new { id = item.PlaceId }, null)</td>
             @if (User.Identity.Name == Model.Email.Trim())
             {
-                <td>@Html.ActionLink("edit", "Edit", "Place", new { id = item.PlaceId }, null)</td>
+                <td>@Html.ActionLink(@Resources.Resource.Edit, "Edit", "Place", new { id = item.PlaceId }, null)</td>
             }
         </tr>
     }
 </table>
-<h2>Places visited by user</h2>
+<h2>@Resources.Resource.PlacesVisitedByUser</h2>
 <table class="table table-striped">
     @foreach (var item in Model.Visited)
     {
@@ -50,15 +50,15 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Country)
             </td>
-            <td>@Html.ActionLink("see", "Details", "Place", new { id = item.PlaceId }, null)</td>
+            <td>@Html.ActionLink(@Resources.Resource.See, "Details", "Place", new { id = item.PlaceId }, null)</td>
             @if (User.Identity.Name == Model.Email.Trim())
             {
-                <td>@Html.ActionLink("remove visit", "RemoveVisit", "Travels", new { id = item.PlaceId }, null)</td>
+                <td>@Html.ActionLink(@Resources.Resource.RemoveVisit, "RemoveVisit", "Travels", new { id = item.PlaceId }, null)</td>
             }
         </tr>
     }
 </table>
-<h2>Comments added by user</h2>
+<h2>@Resources.Resource.CommentsAddedByUser</h2>
 <table class="table table-striped">
     @foreach (var item in Model.Comments)
     {
@@ -69,7 +69,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Content)
             </td>
-            <td>@Html.ActionLink("see", "Details", "Place", new { id = item.PlaceId }, null)</td>
+            <td>@Html.ActionLink(@Resources.Resource.See, "Details", "Place", new { id = item.PlaceId }, null)</td>
         </tr>
     }
 </table>

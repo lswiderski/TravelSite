@@ -1,6 +1,6 @@
 ﻿@model WebProject.Models.UserModel
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = @Resources.Resource.Register;
 }
 
 
@@ -10,7 +10,7 @@
         @Html.ValidationSummary(true)
 
         <fieldset>
-            <legend>Register</legend>
+            <legend>@Resources.Resource.Register</legend>
             <div class="container center_div">
                 <div class="editor-label">
                     @Html.LabelFor(model => model.FirstName)
@@ -52,7 +52,7 @@
                 </div>
                 <br />
                 <p>
-                    <input type="submit" class="btn btn-default" value="Create" />
+                    <input type="submit" class="btn btn-default" value="@Resources.Resource.Create" />
                 </p>
             </div>
 </fieldset>

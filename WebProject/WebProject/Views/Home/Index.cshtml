@@ -6,27 +6,27 @@
 
 <div class="row">
     <div class="col-md-6">
-        <h2>Newest Places</h2>
+        <h2>@Resources.Resource.NewestPlaces</h2>
         @{Html.RenderAction("GetPlaceByAddDate", "Place");}
-        <p><a class="btn btn-default" href="/Place">See more &raquo;</a></p>
+        <p><a class="btn btn-default" href="/Place">@Resources.Resource.SeeMore &raquo;</a></p>
     </div>
     <div class="col-md-6">
-        <h2>Most Popular Places</h2>
+        <h2>@Resources.Resource.MostPopularPlaces</h2>
         @{Html.RenderAction("GetPlaceByPopularDESC", "Place");}
-        <p><a class="btn btn-default" href="/Place">See more &raquo;</a></p>
+        <p><a class="btn btn-default" href="/Place">@Resources.Resource.SeeMore &raquo;</a></p>
     </div>
 
 </div>
 <div class="row">
     <div class="col-md-6">
-        <h2>Best Ranking Places</h2>
+        <h2>@Resources.Resource.BestRankingPlaces</h2>
         @{Html.RenderAction("GetPlaceByRanking", "Place");}
-        <p><a class="btn btn-default" href="/Place">See more &raquo;</a></p>
+        <p><a class="btn btn-default" href="/Place">@Resources.Resource.SeeMore &raquo;</a></p>
     </div>
     <div class="col-md-6">
-        <h2>Most Unknown Places</h2>
+        <h2>@Resources.Resource.MostUnknownPlaces</h2>
         @{Html.RenderAction("GetPlaceByPopularASC", "Place");}
-        <p><a class="btn btn-default" href="/Place">See more &raquo;</a></p>
+        <p><a class="btn btn-default" href="/Place">@Resources.Resource.SeeMore &raquo;</a></p>
     </div>
 
 </div>

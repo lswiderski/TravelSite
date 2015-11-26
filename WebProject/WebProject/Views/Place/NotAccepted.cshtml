@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<WebProject.Models.ViewModels.PlaceViewModel>
 @{
-    ViewBag.Title = "Places not Accepted";
+    ViewBag.Title = @Resources.Resource.PlacesnotAccepted;
 }
 
-<h2>Places not accpeted</h2>
+<h2>@Resources.Resource.PlacesnotAccepted</h2>
 <table class="table table-striped">
     <tr>
         <th>
@@ -13,7 +13,7 @@
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
-            Details
+            @Resources.Resource.Details
         </th>
     </tr>
     @foreach (var item in Model)
@@ -25,10 +25,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
-            <td>@Html.ActionLink("see", "Details", "Place", new { id = item.PlaceId }, null)</td>
+            <td>@Html.ActionLink(@Resources.Resource.See, "Details", "Place", new { id = item.PlaceId }, null)</td>
         </tr>
     }
 </table>
 
-<h2>@Html.ActionLink("Create", "Create", "Place", new { @class = "btn btn-primary", role = "button" })</h2>
+<h2>@Html.ActionLink(@Resources.Resource.Create, "Create", "Place", new { @class = "btn btn-primary", role = "button" })</h2>
 

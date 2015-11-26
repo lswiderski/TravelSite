@@ -117,16 +117,136 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AboutUs" xml:space="preserve">
+    <value>Informations about the site</value>
+  </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Accept</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="AddComment" xml:space="preserve">
+    <value>Add comment</value>
+  </data>
+  <data name="addedby" xml:space="preserve">
+    <value>added by</value>
+  </data>
+  <data name="AddRanking" xml:space="preserve">
+    <value>Add Ranking</value>
+  </data>
+  <data name="BacktoList" xml:space="preserve">
+    <value>Back to List</value>
+  </data>
+  <data name="BestRankingPlaces" xml:space="preserve">
+    <value>Best Ranking Places</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="CommentsAddedByUser" xml:space="preserve">
+    <value>Comments added by user</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="ContentInEnglish" xml:space="preserve">
+    <value>Content in English</value>
+  </data>
+  <data name="ContentInPolish" xml:space="preserve">
+    <value>Content in Polish</value>
+  </data>
+  <data name="ContentInPortuguese" xml:space="preserve">
+    <value>Content in Portuguese</value>
+  </data>
+  <data name="Countries" xml:space="preserve">
+    <value>Countries</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="EditPlace" xml:space="preserve">
+    <value>Edit Place</value>
+  </data>
+  <data name="Footer" xml:space="preserve">
+    <value>Best travel site every By Tiago &amp;amp; Lukasz</value>
+  </data>
   <data name="Language" xml:space="preserve">
     <value>Language</value>
   </data>
+  <data name="MostPopularPlaces" xml:space="preserve">
+    <value>Most Popular Places</value>
+  </data>
+  <data name="MostUnknownPlaces" xml:space="preserve">
+    <value>Most Unknown Places</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NewestPlaces" xml:space="preserve">
+    <value>Newest Places</value>
+  </data>
+  <data name="Places" xml:space="preserve">
+    <value>Places</value>
+  </data>
+  <data name="PlacesAddedByUser" xml:space="preserve">
+    <value>Places added by user</value>
+  </data>
+  <data name="PlacesnotAccepted" xml:space="preserve">
+    <value>Places not Accepted</value>
+  </data>
+  <data name="PlacesVisitedByUser" xml:space="preserve">
+    <value>Places visited by user</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
+  </data>
+  <data name="RemoveVisit" xml:space="preserve">
+    <value>Remove Visit</value>
+  </data>
+  <data name="ReviewIt" xml:space="preserve">
+    <value>Review It</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Score" xml:space="preserve">
+    <value>Score</value>
+  </data>
+  <data name="See" xml:space="preserve">
+    <value>See</value>
+  </data>
+  <data name="SeeMore" xml:space="preserve">
+    <value>See more</value>
   </data>
   <data name="SignIn" xml:space="preserve">
     <value>Sign In</value>
   </data>
   <data name="SignOut" xml:space="preserve">
     <value>Sign Out</value>
+  </data>
+  <data name="SiteSubTitle" xml:space="preserve">
+    <value>Best travel community in the web</value>
+  </data>
+  <data name="SiteTitle" xml:space="preserve">
+    <value>Travel Site</value>
+  </data>
+  <data name="UserDetails" xml:space="preserve">
+    <value>User Details</value>
+  </data>
+  <data name="Visited" xml:space="preserve">
+    <value>Visited</value>
   </data>
 </root>

@@ -38,7 +38,7 @@
             </div>
             <br /><br />
             <div class="form-group">
-                @Html.LabelFor(model => model.Content, new { @class = "col-sm-2 control-label", @for = "inputContent" })
+                @Html.Label(Resources.Resource.ContentInEnglish, new { @class = "col-sm-2 control-label", @for = "inputContent" })
                 <div class="col-sm-10">
                     @Html.TextAreaFor(model => model.Content, new { @class = "form-control", rows = "3", id = "inputContent" })
                     @Html.ValidationMessageFor(model => model.Content)
@@ -46,7 +46,7 @@
             </div>
             <br /><br />
             <div class="form-group">
-                @Html.Label("Content in Portuguese", new { @class = "col-sm-2 control-label", @for = "inputContentPT" })
+                @Html.Label(@Resources.Resource.ContentInPortuguese, new { @class = "col-sm-2 control-label", @for = "inputContentPT" })
                 <div class="col-sm-10">
                     @Html.TextAreaFor(model => model.ContentPT, new { @class = "form-control", rows = "3", id = "inputContentPT" })
                     @Html.ValidationMessageFor(model => model.ContentPT)
@@ -54,7 +54,7 @@
             </div>
             <br /><br />
             <div class="form-group">
-                @Html.Label("Content in Polish", new { @class = "col-sm-2 control-label", @for = "inputContentPL" })
+                @Html.Label(Resources.Resource.ContentInPolish, new { @class = "col-sm-2 control-label", @for = "inputContentPL" })
                 <div class="col-sm-10">
                     @Html.TextAreaFor(model => model.ContentPL, new { @class = "form-control", rows = "3", id = "inputContentPL" })
                     @Html.ValidationMessageFor(model => model.ContentPL)
@@ -64,7 +64,7 @@
             @Html.HiddenFor(model => model.UserEmail, new { @Value = User.Identity.Name })
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default">Add</button>
+                    <button type="submit" class="btn btn-default">@Resources.Resource.Add</button>
                 </div>
             </div>
         </form>
