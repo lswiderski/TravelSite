@@ -74,9 +74,10 @@ namespace WebProject.Controllers
         }
 
         // GET: Travels/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult RemoveVisit(int Id)
         {
-            return View();
+            travelsService.RemoveVisit(Id, User.Identity.Name);
+            return RedirectToAction("Details", "Place", new { @Id = Id });
         }
 
         // POST: Travels/Delete/5

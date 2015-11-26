@@ -53,7 +53,7 @@
             <td>@Html.ActionLink("see", "Details", "Place", new { id = item.PlaceId }, null)</td>
             @if (User.Identity.Name == Model.Email.Trim())
             {
-                <td>@Html.ActionLink("remove visit", "RemoveVisit", "Travel", new { id = item.PlaceId }, null)</td>
+                <td>@Html.ActionLink("remove visit", "RemoveVisit", "Travels", new { id = item.PlaceId }, null)</td>
             }
         </tr>
     }

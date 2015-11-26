@@ -35,5 +35,18 @@ namespace WebProject.Models
                 return travels;
             }
         }
+        public void RemoveVisit(int placeId, string userEmail)
+        {
+            using (var db = new DBEntitiesProxy())
+            {
+                var visits = db.Travels
+                    .Where(x => x.PlaceId == placeId && x.User.Email.Trim() == userEmail).ToList();
+                foreach (var v in visits)
+                {
+                    db.Travels.Remove(v);
+                }               
+                db.SaveChanges();
+            }
+        }
     }
 }
