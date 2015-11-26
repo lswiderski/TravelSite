@@ -39,13 +39,19 @@
 </div>
 @if (Request.IsAuthenticated)
 {
-@Html.ActionLink("Checked", "Create", "Travels", new { UserEmail = User.Identity.Name, PlaceId = ViewBag.PlaceId }, new { @class = "btn btn-success", type = "submit" })
+@Html.ActionLink("Checked", "Create", "Travels", new { UserEmail = User.Identity.Name, PlaceId = ViewBag.PlaceId }, new { @class = "btn btn-primary", type = "submit" })
 
 @Html.ActionLink("Review it", "Create", "Ranking", new { Id = ViewBag.PlaceId }, new { @class = "btn btn-success", type = "submit" })
+    if (User.Identity.Name == Model.UserEmail.Trim())
+    {
+        @Html.ActionLink("edit", "Edit", "Place", new { id = ViewBag.PlaceId }, new { @class = "btn btn-warning", type = "submit" })
+    }
+
 }
+
 @if (ViewBag.Admin == true && Model.IsAccepted == false)
 {
-    @Html.ActionLink("Accept", "Accept", "Place", new { Id = ViewBag.PlaceId }, new { @class = "btn btn-success", type = "submit" })
+    @Html.ActionLink("Accept", "Accept", "Place", new { Id = ViewBag.PlaceId }, new { @class = "btn btn-danger", type = "submit" })
 }
 <div id="comments">
     @{Html.RenderAction("Place", "Comment", new { id = ViewBag.PlaceId });}

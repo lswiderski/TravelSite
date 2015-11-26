@@ -241,6 +241,7 @@
     <Compile Include="Models\ViewModels\CreateRankingViewModel.cs" />
     <Compile Include="Models\ViewModels\CreateTravelViewModel.cs" />
     <Compile Include="Models\ViewModels\CreateUserViewModel.cs" />
+    <Compile Include="Models\ViewModels\EditPlaceViewModel.cs" />
     <Compile Include="Models\ViewModels\LoginViewModel.cs" />
     <Compile Include="Models\ViewModels\PlaceViewModel.cs" />
     <Compile Include="Models\ViewModels\TravelsByUserViewModel.cs" />
@@ -337,6 +338,7 @@
     <Content Include="Views\Ranking\Create.cshtml" />
     <Content Include="Views\Place\PartialPlace.cshtml" />
     <Content Include="Views\Place\NotAccepted.cshtml" />
+    <Content Include="Views\Place\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

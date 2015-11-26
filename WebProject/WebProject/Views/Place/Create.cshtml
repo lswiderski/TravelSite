@@ -46,17 +46,17 @@
             </div>
             <br /><br />
             <div class="form-group">
-                @Html.Label("Content in Portuguese", new { @class = "col-sm-2 control-label", @for = "inputContent" })
+                @Html.Label("Content in Portuguese", new { @class = "col-sm-2 control-label", @for = "inputContentPT" })
                 <div class="col-sm-10">
-                    @Html.TextAreaFor(model => model.ContentPT, new { @class = "form-control", rows = "3", id = "inputContent" })
+                    @Html.TextAreaFor(model => model.ContentPT, new { @class = "form-control", rows = "3", id = "inputContentPT" })
                     @Html.ValidationMessageFor(model => model.ContentPT)
                 </div>
             </div>
             <br /><br />
             <div class="form-group">
-                @Html.Label("Content in Polish", new { @class = "col-sm-2 control-label", @for = "inputContent" })
+                @Html.Label("Content in Polish", new { @class = "col-sm-2 control-label", @for = "inputContentPL" })
                 <div class="col-sm-10">
-                    @Html.TextAreaFor(model => model.ContentPL, new { @class = "form-control", rows = "3", id = "inputContent" })
+                    @Html.TextAreaFor(model => model.ContentPL, new { @class = "form-control", rows = "3", id = "inputContentPL" })
                     @Html.ValidationMessageFor(model => model.ContentPL)
                 </div>
             </div>

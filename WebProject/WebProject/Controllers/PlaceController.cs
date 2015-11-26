@@ -130,22 +130,23 @@ namespace WebProject.Controllers
         // GET: Place/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(placeModel.GetPlaceToEdit(id));
         }
 
         // POST: Place/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, EditPlaceViewModel model)
         {
             try
             {
-                // TODO: Add update logic here
+                model.PlaceId = id;
+                placeModel.EditPlace(model);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Details",new { @Id = id});
             }
             catch
             {
-                return View();
+                return RedirectToAction("Details", new { @Id = id });
             }
         }
 

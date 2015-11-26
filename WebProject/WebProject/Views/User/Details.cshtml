@@ -32,6 +32,10 @@
                 @Html.DisplayFor(modelItem => item.Country)
             </td>
             <td>@Html.ActionLink("see", "Details", "Place", new { id = item.PlaceId }, null)</td>
+            @if (User.Identity.Name == Model.Email.Trim())
+            {
+                <td>@Html.ActionLink("edit", "Edit", "Place", new { id = item.PlaceId }, null)</td>
+            }
         </tr>
     }
 </table>
@@ -47,6 +51,10 @@
                 @Html.DisplayFor(modelItem => item.Country)
             </td>
             <td>@Html.ActionLink("see", "Details", "Place", new { id = item.PlaceId }, null)</td>
+            @if (User.Identity.Name == Model.Email.Trim())
+            {
+                <td>@Html.ActionLink("remove visit", "RemoveVisit", "Travel", new { id = item.PlaceId }, null)</td>
+            }
         </tr>
     }
 </table>
