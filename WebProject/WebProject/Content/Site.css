@@ -11,6 +11,9 @@
     margin: 0 auto;
     width:260px; /* value of your choice which suits your alignment */
 }
+.btn{
+    margin-right: 10px;
+}
 
 
 /* Set padding to keep content from hitting the edges */
@@ -30,5 +33,6 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 480px;
+    margin-bottom: 20px;
 }

@@ -40,7 +40,7 @@
             <div class="form-group">
                 @Html.Label(Resources.Resource.ContentInEnglish, new { @class = "col-sm-2 control-label", @for = "inputContent" })
                 <div class="col-sm-10">
-                    @Html.TextAreaFor(model => model.Content, new { @class = "form-control", rows = "3", id = "inputContent" })
+                    @Html.TextAreaFor(model => model.Content, new { @class = "form-control", rows = "6", id = "inputContent" })
                     @Html.ValidationMessageFor(model => model.Content)
                 </div>
             </div>
@@ -48,7 +48,7 @@
             <div class="form-group">
                 @Html.Label(@Resources.Resource.ContentInPortuguese, new { @class = "col-sm-2 control-label", @for = "inputContentPT" })
                 <div class="col-sm-10">
-                    @Html.TextAreaFor(model => model.ContentPT, new { @class = "form-control", rows = "3", id = "inputContentPT" })
+                    @Html.TextAreaFor(model => model.ContentPT, new { @class = "form-control", rows = "6", id = "inputContentPT" })
                     @Html.ValidationMessageFor(model => model.ContentPT)
                 </div>
             </div>
@@ -56,7 +56,7 @@
             <div class="form-group">
                 @Html.Label(Resources.Resource.ContentInPolish, new { @class = "col-sm-2 control-label", @for = "inputContentPL" })
                 <div class="col-sm-10">
-                    @Html.TextAreaFor(model => model.ContentPL, new { @class = "form-control", rows = "3", id = "inputContentPL" })
+                    @Html.TextAreaFor(model => model.ContentPL, new { @class = "form-control", rows = "6", id = "inputContentPL" })
                     @Html.ValidationMessageFor(model => model.ContentPL)
                 </div>
             </div>

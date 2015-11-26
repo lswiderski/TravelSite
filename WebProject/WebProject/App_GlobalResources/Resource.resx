@@ -180,8 +180,11 @@
   <data name="EditPlace" xml:space="preserve">
     <value>Edit Place</value>
   </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
+  </data>
   <data name="Footer" xml:space="preserve">
-    <value>Best travel site every By Tiago &amp;amp; Lukasz</value>
+    <value>Best travel site ever By Tiago &amp;amp; Lukasz</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Language</value>
@@ -209,6 +212,12 @@
   </data>
   <data name="PlacesVisitedByUser" xml:space="preserve">
     <value>Places visited by user</value>
+  </data>
+  <data name="Polish" xml:space="preserve">
+    <value>Polish</value>
+  </data>
+  <data name="Portuguese" xml:space="preserve">
+    <value>Portuguese</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>

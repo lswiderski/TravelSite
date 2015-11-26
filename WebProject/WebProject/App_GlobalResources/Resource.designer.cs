@@ -250,7 +250,16 @@ namespace WebProject.App_GlobalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Best travel site every By Tiago &amp;amp; Lukasz.
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        public static string English {
+            get {
+                return ResourceManager.GetString("English", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Best travel site ever By Tiago &amp;amp; Lukasz.
         /// </summary>
         public static string Footer {
             get {
@@ -336,6 +345,24 @@ namespace WebProject.App_GlobalResources {
         public static string PlacesVisitedByUser {
             get {
                 return ResourceManager.GetString("PlacesVisitedByUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Polish.
+        /// </summary>
+        public static string Polish {
+            get {
+                return ResourceManager.GetString("Polish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Portuguese.
+        /// </summary>
+        public static string Portuguese {
+            get {
+                return ResourceManager.GetString("Portuguese", resourceCulture);
             }
         }
         

@@ -9,7 +9,7 @@
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
-            Details
+            @Resources.Resource.Details
         </th>
     </tr>
     @foreach (var item in Model)
@@ -21,7 +21,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
-            <td>@Html.ActionLink("see", "Details", "Place", new { id = item.PlaceId }, null)</td>
+            <td>@Html.ActionLink(@Resources.Resource.See, "Details", "Place", new { id = item.PlaceId }, null)</td>
         </tr>
     }
 </table>

@@ -117,16 +117,145 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>Sobre</value>
+  </data>
+  <data name="AboutUs" xml:space="preserve">
+    <value>Sobre nós</value>
+  </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Aceitar</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Adicionar</value>
+  </data>
+  <data name="AddComment" xml:space="preserve">
+    <value>Adicionar um comentário</value>
+  </data>
+  <data name="addedby" xml:space="preserve">
+    <value>Adicionado por</value>
+  </data>
+  <data name="AddRanking" xml:space="preserve">
+    <value>Adicionar Ranking</value>
+  </data>
+  <data name="BacktoList" xml:space="preserve">
+    <value>Voltar à Lista</value>
+  </data>
+  <data name="BestRankingPlaces" xml:space="preserve">
+    <value>Ranking dos Melhores Lugares</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Comentários</value>
+  </data>
+  <data name="CommentsAddedByUser" xml:space="preserve">
+    <value>Comentários adicionados pelo utilizador</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contactos</value>
+  </data>
+  <data name="ContentInEnglish" xml:space="preserve">
+    <value>Conteúdo em Inglês</value>
+  </data>
+  <data name="ContentInPolish" xml:space="preserve">
+    <value>Conteúdo em Polaco</value>
+  </data>
+  <data name="ContentInPortuguese" xml:space="preserve">
+    <value>Conteúdo em Português</value>
+  </data>
+  <data name="Countries" xml:space="preserve">
+    <value>Países</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>País</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Criar</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detalhes</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="EditPlace" xml:space="preserve">
+    <value>Editar Lugar</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>Inglês</value>
+  </data>
+  <data name="Footer" xml:space="preserve">
+    <value>O melhor site de viagens de sempre, por Tiago &amp; Lukasz</value>
+  </data>
   <data name="Language" xml:space="preserve">
-    <value>Lingua</value>
+    <value>Língua</value>
+  </data>
+  <data name="MostPopularPlaces" xml:space="preserve">
+    <value>Lugares Mais Populares</value>
+  </data>
+  <data name="MostUnknownPlaces" xml:space="preserve">
+    <value>Lugares Mais Desconhecidos</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="NewestPlaces" xml:space="preserve">
+    <value>Novos Lugares</value>
+  </data>
+  <data name="Places" xml:space="preserve">
+    <value>Lugares</value>
+  </data>
+  <data name="PlacesAddedByUser" xml:space="preserve">
+    <value>Lugares adicionados pelo utilizador</value>
+  </data>
+  <data name="PlacesnotAccepted" xml:space="preserve">
+    <value>Lugares não aceites</value>
+  </data>
+  <data name="PlacesVisitedByUser" xml:space="preserve">
+    <value>Lugares visitados pelo utilizador</value>
+  </data>
+  <data name="Polish" xml:space="preserve">
+    <value>Polaco</value>
+  </data>
+  <data name="Portuguese" xml:space="preserve">
+    <value>Português</value>
   </data>
   <data name="Register" xml:space="preserve">
-    <value>PT Register</value>
+    <value>Registo</value>
+  </data>
+  <data name="RemoveVisit" xml:space="preserve">
+    <value>Remover visita</value>
+  </data>
+  <data name="ReviewIt" xml:space="preserve">
+    <value>Fazer um review</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="Score" xml:space="preserve">
+    <value>Pontos</value>
+  </data>
+  <data name="See" xml:space="preserve">
+    <value>Ver</value>
+  </data>
+  <data name="SeeMore" xml:space="preserve">
+    <value>Ver mais</value>
   </data>
   <data name="SignIn" xml:space="preserve">
-    <value>PT Sign In</value>
+    <value>Entre</value>
   </data>
   <data name="SignOut" xml:space="preserve">
-    <value>PT Sign Out</value>
+    <value>Sair</value>
+  </data>
+  <data name="SiteSubTitle" xml:space="preserve">
+    <value>A melhor comunidade de viagens da web</value>
+  </data>
+  <data name="SiteTitle" xml:space="preserve">
+    <value>Site de Viagens</value>
+  </data>
+  <data name="UserDetails" xml:space="preserve">
+    <value>Detalhes do utilizador</value>
+  </data>
+  <data name="Visited" xml:space="preserve">
+    <value>Visitado</value>
   </data>
 </root>
