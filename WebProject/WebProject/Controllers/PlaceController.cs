@@ -13,7 +13,7 @@ namespace WebProject.Controllers
         UserModel userModel = new UserModel();
         PlaceModel placeModel = new PlaceModel();
         // GET: Places
-        public ActionResult Index()
+        public ActionResult Index(int? CountryId)
         {
             bool isAdmin = false;
             if (Request.IsAuthenticated)
@@ -22,15 +22,15 @@ namespace WebProject.Controllers
 
             }
             ViewBag.Admin = isAdmin;
-            if (isAdmin)
+            if(CountryId != null)
             {
-                return View(placeModel.GetPlaces());
+                return View(placeModel.GetListOfPlaces(CountryId.Value));
             }
-            else
+             else
             {
-                return View(placeModel.GetAccpetedPlaces());
+                return View(placeModel.GetListOfPlaces());
             }
-
+                
         }
         public ActionResult NotAccepted()
         {

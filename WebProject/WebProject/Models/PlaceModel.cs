@@ -159,5 +159,27 @@ namespace WebProject.Models
                 return db.Place.Where(x => x.User.Email == email).Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Content = x.Content, UserName = x.User.FirstName + " " + x.User.LastName, Country = x.Country.Name, Photo_URI = x.Photo_URI }).ToList();
             }
         }
+        public PlaceListViewModel GetListOfPlaces()
+        {
+            using (var db = new DBEntitiesProxy())
+            {
+                var places = new PlaceListViewModel();
+                places.Places = db.Place.Where(x => x.IsAccepted == true).OrderByDescending(x => x.AddDate).Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Country = x.Country.Name }).ToList();
+                places.Countries = new List<CountryModel>();
+                places.Countries = db.Country.Select(x => new CountryModel { Code = x.Code, CountryId = x.CountryId, Name = x.Name }).ToList();
+                return places;
+            }
+        }
+        public PlaceListViewModel GetListOfPlaces(int coutryId)
+        {
+            using (var db = new DBEntitiesProxy())
+            {
+                var places = new PlaceListViewModel();
+                places.Places = db.Place.Where(x => x.IsAccepted == true && x.CountryId == coutryId).OrderByDescending(x => x.AddDate).Select(x => new PlaceViewModel { PlaceId = x.PlaceId, Name = x.Name, Country = x.Country.Name }).ToList();
+                places.Countries = new List<CountryModel>();
+                places.Countries = db.Country.Select(x => new CountryModel { Code = x.Code, CountryId = x.CountryId, Name = x.Name }).ToList();
+                return places;
+            }
+        }
     }
 }

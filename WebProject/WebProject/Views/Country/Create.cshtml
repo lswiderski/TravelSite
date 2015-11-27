@@ -14,7 +14,8 @@
             @Html.LabelFor(model => model.Code)
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.Code, new { @class = "form-control" })
+            @Html.TextBoxFor(model => model.Code, new { @class = "form-control" ,
+           @style = " width: 45px; "})
             @Html.ValidationMessageFor(model => model.Code)
         </div>
 

@@ -1,22 +1,32 @@
-﻿@model IEnumerable<WebProject.Models.ViewModels.PlaceViewModel>
+﻿@model WebProject.Models.ViewModels.PlaceListViewModel
 @{
     ViewBag.Title = @Resources.Resource.Places;
 }
 
 <h2>@Resources.Resource.Places</h2>
-<table class="table table-striped">
-    <tr>
-        <th>
-            @Resources.Resource.Country
-        </th>
-        <th>
-            @Resources.Resource.Name
+
+<form class="form-inline">
+    <div class="form-group">
+        <label for="InputCountry">@Resources.Resource.Country</label>
+        @Html.DropDownListFor(model => model.CountryId, new SelectList(Model.Countries, "CountryId", "Name"), new { @id = "InputCountry", @class = "form-control", @for = "inputCountry" })
+    </div>
+    <button type="submit" class="btn btn-default">Filter</button>
+    @Html.ActionLink("Clear Filter", "Index", "Place", new { @class = "btn btn-default", role = "button" })
+    </form>
+
+    <table class="table table-striped">
+        <tr>
+            <th>
+                @Resources.Resource.Country
+            </th>
+            <th>
+                @Resources.Resource.Name
         </th>
         <th>
             @Resources.Resource.Details
         </th>
     </tr>
-    @foreach (var item in Model)
+    @foreach (var item in Model.Places)
     {
         <tr>
             <td>

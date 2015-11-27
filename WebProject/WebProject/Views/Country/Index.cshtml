@@ -3,14 +3,14 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Countries</h2>
-<table border="1">
+<h2>@Resources.Resource.Countries</h2>
+<table class="table table-striped">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Code)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Resources.Resource.Name
         </th>
     </tr>
 @foreach (var item in Model)
