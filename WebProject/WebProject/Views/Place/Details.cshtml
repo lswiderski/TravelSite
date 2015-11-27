@@ -5,7 +5,7 @@
     ViewBag.Title = @Html.DisplayFor(model => model.Name);
 }
 
-<h2> @Html.DisplayFor(model => model.Name) <small>@Resources.Resource.Country: @Html.DisplayFor(model => model.Country), @Resources.Resource.addedby:  @Html.DisplayFor(model => model.UserName), @Resources.Resource.Score: @Html.DisplayFor(model => model.Score)</small> </h2>
+<h2> @Html.DisplayFor(model => model.Name) <small>@Resources.Resource.Country: @Html.DisplayFor(model => model.Country), @Resources.Resource.addedby: @Html.ActionLink(Html.Encode(Html.DisplayFor(model => model.UserName)), "DetailsM", "User", new { email = Html.Encode(Html.DisplayFor(model => model.UserEmail)) }, null) , @Resources.Resource.Score: @Html.DisplayFor(model => model.Score)</small> </h2>
 
 <div class="panel panel-default">
     <div class="panel-heading">

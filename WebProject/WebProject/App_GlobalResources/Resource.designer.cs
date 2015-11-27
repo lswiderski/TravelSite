@@ -259,7 +259,7 @@ namespace WebProject.App_GlobalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Best travel site ever By Tiago &amp;amp; Lukasz.
+        ///   Looks up a localized string similar to Best travel site ever By Tiago &amp; Lukasz.
         /// </summary>
         public static string Footer {
             get {
