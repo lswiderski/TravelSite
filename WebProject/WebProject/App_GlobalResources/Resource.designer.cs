@@ -70,7 +70,7 @@ namespace WebProject.App_GlobalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Informations about the site.
+        ///   Looks up a localized string similar to This all started in the first classes of Web Composing in the University of Beira Interior, Covilhã. The professor suggested us to build groups to work together on a web page, and because it was still the beggining of the first year semester, we didn’t know much people yet. It ended to be the professor to tell us to work together: Tiago, a freshman, and Lukasz, a polish ERASMUS student. Our common interest of trips and adventure lead us to the theme of the project: a online travellers community that can use [rest of string was truncated]&quot;;.
         /// </summary>
         public static string AboutUs {
             get {
@@ -138,6 +138,15 @@ namespace WebProject.App_GlobalResources {
         public static string BestRankingPlaces {
             get {
                 return ResourceManager.GetString("BestRankingPlaces", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear Filter.
+        /// </summary>
+        public static string ClearFilter {
+            get {
+                return ResourceManager.GetString("ClearFilter", resourceCulture);
             }
         }
         
@@ -255,6 +264,15 @@ namespace WebProject.App_GlobalResources {
         public static string English {
             get {
                 return ResourceManager.GetString("English", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filter.
+        /// </summary>
+        public static string Filter {
+            get {
+                return ResourceManager.GetString("Filter", resourceCulture);
             }
         }
         

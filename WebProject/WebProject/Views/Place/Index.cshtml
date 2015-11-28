@@ -10,7 +10,7 @@
         <label for="InputCountry">@Resources.Resource.Country</label>
         @Html.DropDownListFor(model => model.CountryId, new SelectList(Model.Countries, "CountryId", "Name"), new { @id = "InputCountry", @class = "form-control", @for = "inputCountry" })
     </div>
-    <button type="submit" class="btn btn-default">Filter</button>
+    <button type="submit" class="btn btn-default btn-filter">Filter</button>
     @Html.ActionLink("Clear Filter", "Index", "Place", new { @class = "btn btn-default", role = "button" })
     </form>
 

@@ -121,7 +121,7 @@
     <value>O nas</value>
   </data>
   <data name="AboutUs" xml:space="preserve">
-    <value>Infarmacje o stronie</value>
+    <value>Wszystko Rozpoczęło od pierwszych zajęć z Web Composing na uniwersytecie Of Beira Interrior, Covilha. Profesor zasugerował nam zbudanie grupy projektowej by razem stworzyć serwis www. Jako, że byliśmy na pierwszym semestrze nie znaliśmy innych osób. Profesor zasugerował byśmy pracowali razem: Tiago – pierwszoroczniak i Łukasz polski erasmus. Naszym wspólnym zainteresowaniem były podróże i przygoda co przerodziło w główny temat projektu: platformę „Travel site” gdzie ludzie mogli dzielić się przeżyciami na temat swoich podróż i rekomendować inne miejsca. Wszystko w jednym miejscu. Się zbudowana przez społeczność dla społeczności.  Chodź podróżować razem z nami!</value>
   </data>
   <data name="Accept" xml:space="preserve">
     <value>Akceptuj</value>
@@ -257,5 +257,11 @@
   </data>
   <data name="Visited" xml:space="preserve">
     <value>Odwiedzone</value>
+  </data>
+  <data name="ClearFilter" xml:space="preserve">
+    <value>Czysc Filtr</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filtruj</value>
   </data>
 </root>

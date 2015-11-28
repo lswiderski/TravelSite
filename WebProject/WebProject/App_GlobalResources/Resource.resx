@@ -121,7 +121,8 @@
     <value>About</value>
   </data>
   <data name="AboutUs" xml:space="preserve">
-    <value>Informations about the site</value>
+    <value>This all started in the first classes of Web Composing in the University of Beira Interior, Covilhã. The professor suggested us to build groups to work together on a web page, and because it was still the beggining of the first year semester, we didn’t know much people yet. It ended to be the professor to tell us to work together: Tiago, a freshman, and Lukasz, a polish ERASMUS student. Our common interest of trips and adventure lead us to the theme of the project: a online travellers community that can use “Travel Site” to share their experiences, photos and to know new places. Everything in one place. A website build for the community and from the community. We join efforts to build what we think it’s the “Best community travel in the web”, our slogan. With continuum improvements and a dynamic vision, we hope to become our community in one of the largest online and that each user, following the good working rules, take advantage of our functionalities and help us to reach that goal.
+Come travel with us!</value>
   </data>
   <data name="Accept" xml:space="preserve">
     <value>Accept</value>
@@ -257,5 +258,11 @@
   </data>
   <data name="Visited" xml:space="preserve">
     <value>Visited</value>
+  </data>
+  <data name="ClearFilter" xml:space="preserve">
+    <value>Clear Filter</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filter</value>
   </data>
 </root>

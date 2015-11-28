@@ -121,7 +121,8 @@
     <value>Sobre</value>
   </data>
   <data name="AboutUs" xml:space="preserve">
-    <value>Sobre nós</value>
+    <value>Tudo começou numa das primeiras aulas de composição web na Universidade da Beira Interior, Covilhã. O professor tinha sugerido grupos para fazer uma página web, e como ainda era o início, ainda não nos conhecíamos, bem como a muita gente da turma. Foi o próprio professor que acabou por sugerir que trabalhássemos em conjunto. O nosso gosto por viajar e aventura acabou por nos levar ao tema do projecto: uma comunidade online de viajantes que pudesse ver no “Travel Site” uma forma de partilhar as suas experiências, fotografias e conhecer novos lugares. Tudo num só sítio. Um site feito para a comunidade e da comunidade. Unimos esforços para construir aquilo que cremos que seja o “Melhor site de viagens da comunidade web”, o nosso slogan. Com contínuos melhoramentos e uma visão dinâmica, esperamos tornar a nossa comunidade numa das maiores online, e que cada utilizador, cumprindo as regras de bom funcionamento de respeito, tire partido do melhor das nossas funcionalidades para que possamos atingir esse objectivo. 
+Venha viajar connosco!</value>
   </data>
   <data name="Accept" xml:space="preserve">
     <value>Aceitar</value>
@@ -257,5 +258,11 @@
   </data>
   <data name="Visited" xml:space="preserve">
     <value>Visitado</value>
+  </data>
+  <data name="ClearFilter" xml:space="preserve">
+    <value>Limpar Filtro</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filtrar</value>
   </data>
 </root>
