@@ -265,4 +265,13 @@ Come travel with us!</value>
   <data name="Filter" xml:space="preserve">
     <value>Filter</value>
   </data>
+  <data name="BirthDate" xml:space="preserve">
+    <value>Birth Date</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
 </root>

@@ -203,7 +203,7 @@ Venha viajar connosco!</value>
     <value>Novos Lugares</value>
   </data>
   <data name="Places" xml:space="preserve">
-    <value>Lugares</value>
+    <value>Locais</value>
   </data>
   <data name="PlacesAddedByUser" xml:space="preserve">
     <value>Lugares adicionados pelo utilizador</value>
@@ -264,5 +264,14 @@ Venha viajar connosco!</value>
   </data>
   <data name="Filter" xml:space="preserve">
     <value>Filtrar</value>
+  </data>
+  <data name="BirthDate" xml:space="preserve">
+    <value>Data de nascimento</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Apelido</value>
   </data>
 </root>
